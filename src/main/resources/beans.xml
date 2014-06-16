@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dataSourceCSS" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:2278/postgres"/>
+        <property name="username" value="operator"/>
+        <property name="password" value="CastAIP"/>      
+    </bean>
+
+	<bean id="dataSourceCSS2" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:2280/postgres"/>
+        <property name="username" value="operator"/>
+        <property name="password" value="CastAIP"/>
+    </bean>
+
+	<bean id="dataSourceCSSFAIF" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://faifcssdb:2278/postgres"/>
+        <property name="username" value="operator"/>
+        <property name="password" value="CastAIPx"/>
+    </bean>
+        		
+    <bean id="dataSourceORA" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@BDROCKS.corp.castsoftware.com:1521:ORA11GBD"/>
+		<property name="username" value="SYSTEM"/>
+		<property name="password" value="CASTx"/>      
+	</bean>
+
+	<bean id="Localhost2278" class="com.nla.dao.ForumDAOImpl">
+		<property name="dataSource" ref="dataSourceCSS"/>
+	</bean>
+
+	<bean id="Localhost2280" class="com.nla.dao.ForumDAOImpl">
+		<property name="dataSource" ref="dataSourceCSS2"/>
+	</bean>
+
+	<bean id="BDROCK1521" class="com.nla.dao.ForumDAOImpl">
+		<property name="dataSource" ref="dataSourceORA"/>
+	</bean>
+	
+	<bean id="faifcssdb2278" class="com.nla.dao.ForumDAOImpl">
+		<property name="dataSource" ref="dataSourceCSSFAIF"/>
+	</bean>
+	
+       
+   
+	<bean id="listOfDatabases" class="com.nla.dao.DatabaseLoaderImpl">
+		<property name="dataBaseName" value="Localhost2278,Localhost2280,BDROCK1521,faifcssdb2278,dataSourcePOC"/>
+		   
+	</bean>
+		
+		
+	
+	<bean name="dataSourceMySQL" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	    <property name="url" value="jdbc:mysql://x/x" />
+	    <property name="username" value="x" />
+	    <property name="password" value="x" />
+	</bean>
+	
+	<bean id="databaseMySQL" class="com.nla.dao.BenchmarkDAOImpl">
+		<property name="dataSource" ref="dataSourceMySQL"/>
+	</bean>
+	
+	<bean id="dataSourcePOC" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/postgres"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="root"/>      
+    </bean>
+  
+	<bean id="dataSourceForPOC" class="com.nla.dao.BenchmarkDAOImpl">
+		<property name="dataSource" ref="dataSourcePOC"/>
+	</bean>
+
+
+</beans>
