@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" p:basename="views" />
+	
+
+ 	<bean id="knowledgeBaseService" class="com.nla.service.KnowledgeBaseServiceImpl" scope="session" >
+ 		<aop:scoped-proxy/>
+ 	</bean>
+ 	<bean id="userService" class="com.nla.service.UserServiceImpl" />
+	<bean id="metricListService" class="com.nla.service.MetricListServiceImpl" />
+	<bean id="centralBaseListService" class="com.nla.service.CentralBaseListServiceImpl"   />
+	<bean id="centralBaseService" class="com.nla.service.CentralBaseServiceImpl" scope="session" >
+ 		<aop:scoped-proxy/>
+ 	</bean>
+	<bean id="managementBaseListService" class="com.nla.service.ManagementBaseListServiceImpl"  scope="session" >
+ 		<aop:scoped-proxy/>   
+ 	</bean>
+	<context:component-scan base-package="com.nla.web" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" p:definitions="/WEB-INF/tiles-defs.xml" />
+</beans>
