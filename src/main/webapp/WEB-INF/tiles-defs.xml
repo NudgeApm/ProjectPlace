@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="homeLayout" template="/WEB-INF/tiles/homeLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
+  
+  <definition name="baseLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/tiles/menu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
+   
+  <definition name="searchLayout" template="/WEB-INF/tiles/searchLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/tiles/menu.jsp"/>
+      <put-attribute name="search"   value="/WEB-INF/tiles/search.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/tiles/result.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
+
+  <definition name="searchDetailLayout" template="/WEB-INF/tiles/searchDetailLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/tiles/menu.jsp"/>
+      <put-attribute name="info"   value="/WEB-INF/tiles/info.jsp"/>
+      <put-attribute name="search"   value="/WEB-INF/tiles/search.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/tiles/result.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
+    
+  <!--****************************************************************-->
+  <!-- PAGES DEFINITION                                               -->
+  <!--****************************************************************-->
+  <definition name="homePageTile" extends="homeLayout">
+      <put-attribute name="title"  value="HomePage"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/homePage.jsp"/>      
+  </definition>
+  
+  <!--****************************************************************-->
+  <!-- Technical Analysis Administration PAGES                        -->
+  <!--****************************************************************-->
+  <definition name="technicalAnalysisAdminTile" extends="baseLayout">
+      <put-attribute name="title"  value="Technical Analysis Administration"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/technicalAnalysisAdminPage.jsp"/>      
+  </definition>
+  <definition name="technicalAnalysisAdminAppTile" extends="baseLayout">
+      <put-attribute name="title"  value="Technical Analysis Administration - Applications"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/technicalAnalysisAdminAppPage.jsp"/>      
+  </definition>
+  <definition name="technicalAnalysisAdminMngtBaseTile" extends="baseLayout">
+      <put-attribute name="title"  value="Technical Analysis Administration - Management bases"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/technicalAnalysisAdminMngtBasePage.jsp"/>      
+  </definition>
+  <definition name="technicalAnalysisAdminCentralBaseTile" extends="baseLayout">
+      <put-attribute name="title"  value="Technical Analysis Administration - Central bases"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/technicalAnalysisAdminCentralBasePage.jsp"/>      
+  </definition>
+  
+  <definition name="detailCBTile" extends="baseLayout">
+      <put-attribute name="title"  value="detail CB"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/detailCB.jsp"/>      
+  </definition>
+  <!--****************************************************************-->
+  <!-- Action plan builder PAGES                                      -->
+  <!--****************************************************************-->
+  <definition name="actionPlanBuilderTile" extends="baseLayout">
+      <put-attribute name="title"  value="action plan builder"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/actionPlanBuilderPage.jsp"/>      
+  </definition>  
+  <definition name="actionPlanMainResultTile" extends="searchLayout">
+      <put-attribute name="title"  value="Welcome"/>
+      <put-attribute name="titlePage"  value="Rules tracking"/>
+      <put-attribute name="search"   value="/WEB-INF/jsp/actionPlanSearch.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/jsp/actionPlanMainResultPage.jsp"/>      
+  </definition>  
+  <definition name="actionPlanDetailMetricTile" extends="searchLayout">      
+      <put-attribute name="title"  value="action plan detail metric"/>
+      <put-attribute name="titlePage"  value="Metric Details"/>
+      <put-attribute name="search" value="/WEB-INF/jsp/detailedInformationPage.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/jsp/actionPlanDetailMetricPage.jsp"/>      
+  </definition>
+  <definition name="actionPlanEnlightenResultTile" extends="baseLayout">
+      <put-attribute name="title"  value="action plan detail metric for enlighten view"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/actionPlanDetailMetricEnlightenPage.jsp"/>      
+  </definition>      
+  <definition name="actionPlanSummaryTile" extends="baseLayout">
+      <put-attribute name="title"  value="action plan Summary"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/actionPlanSummaryPage.jsp"/>      
+  </definition>   
+  <definition name="actionPlanMainResultPageTile" extends="searchLayout">
+      <put-attribute name="title"  value="Welcome"/>
+      <put-attribute name="search"   value="/WEB-INF/jsp/actionPlanSearchObjPage.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/jsp/actionPlanMainResultObjPage.jsp"/>      
+  </definition> 
+   
+   
+  <!--****************************************************************-->
+  <!-- dashboard comparator PAGES                                     -->
+  <!--****************************************************************--> 
+   <definition name="dashboardComparatorBuilderTile" extends="baseLayout">
+      <put-attribute name="title"  value="Dashboard Compartor builder"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/dashboardComparatorBuilderPage.jsp"/>      
+  </definition>
+  <definition name="dashboardComparatorResultTile" extends="baseLayout">
+      <put-attribute name="title"  value="Dashboard comparator result"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/dashboardComparatorResultPage.jsp"/>      
+  </definition> 
+  <definition name="dashboardComparatorMetricResultTile" extends="searchLayout">
+      <put-attribute name="title"  value="Welcome"/>
+      <put-attribute name="titlePage"  value="Rules tracking"/>
+      <put-attribute name="search"   value="/WEB-INF/jsp/dashboardComparatorMetricResulSearchtPage.jsp"/>
+      <put-attribute name="result"   value="/WEB-INF/jsp/dashboardComparatorMetricResultPage.jsp"/>      
+  </definition> 
+  
+  
+  <!--****************************************************************-->
+  <!-- stat view  PAGES                                               -->
+  <!--****************************************************************-->
+  <definition name="statisticTile" extends="baseLayout">
+      <put-attribute name="title"  value="statistic page"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/statisticPage.jsp"/>      
+  </definition>
+  
+  <!--****************************************************************-->
+  <!-- Report Builder PAGES                                           -->
+  <!--****************************************************************-->
+  <definition name="reportBuilderTile" extends="baseLayout">
+      <put-attribute name="title"  value="report builder page"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/reportBuilderPage.jsp"/>      
+  </definition>
+   
+
+
+
+  
+  
+  
+  
+  
+  
+  <definition name="homePageTechAnalysisAdminTile" extends="baseLayout">
+      <put-attribute name="title"  value="homePageTechAnalysisAdmin"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/homePageTechAnalysisAdmin.jsp"/>      
+  </definition>
+</tiles-definitions>
