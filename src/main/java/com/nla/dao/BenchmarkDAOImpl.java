@@ -33,7 +33,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO{
 		int forumId = 1;
 		String query = "Select * from pocpoc.account where id=?";
 		
-		String s = jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
+		String s = (String)jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
 				new RowMapper() {
 					public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 						return resultSet.getString("nom");
@@ -93,7 +93,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO{
 		int forumId = 1;
 		String query = "Select * from pocpoc.account where id=?";
 		
-		String s = jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
+		String s = (String)jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
 				new RowMapper() {
 					public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 						return resultSet.getString("nom");
@@ -132,7 +132,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO{
 		int forumId = 1;
 		String query = "Select * from pocpoc.account where id=? limit "+i;
 		
-		String s = jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
+		String s = (String)jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
 				new RowMapper() {
 					public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 						return resultSet.getString("nom");
@@ -148,7 +148,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO{
 		int forumId = 1;
 		String query = "Select nom from pocpoc.account where id=?";
 		
-		String s = jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
+		String s = (String)jdbcTemplate.queryForObject(query, new Object[] { Integer.valueOf(forumId) }, 
 				new RowMapper() {
 					public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 						return resultSet.getString("nom");

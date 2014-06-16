@@ -3,7 +3,6 @@ package com.nla.service;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import org.nudge.probe.Trace;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.UncategorizedSQLException;
