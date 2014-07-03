@@ -14,10 +14,12 @@
           <a class="btn btn-primary" href="selectProduitCartesien.htm">select produit cartesien</a>
           <a class="btn btn-primary" href="selectStar100Items.htm">select star 100 items</a>  
           <a class="btn btn-primary" href="selectStar1000Items.htm">select star 1000 items</a>    
+
           <a class="btn btn-primary" href="selectStar10000Items.htm">select star 10000 items</a>
           <a class="btn btn-primary" href="viewDoesntExist.htm">no view there</a>
           <a class="btn btn-primary" href="viewNullPointerException.htm">Null Pointer Exception</a>
               
+          <a class="btn btn-primary" href="selectStar10000Items.htm">select star 10000 items</a>    
                           
         </ul>
       </div>

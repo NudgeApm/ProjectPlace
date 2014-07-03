@@ -38,6 +38,7 @@ public interface CentralBaseListService {
 	public void selectOneColumnLoop();
 	public void selectOneColumnRecursifEntryPoint();
 	public void selectCartesianProduct();
+
 	public void generateNullPointerException();
 	
 	public ArrayList<Account> getListAccount(int i);

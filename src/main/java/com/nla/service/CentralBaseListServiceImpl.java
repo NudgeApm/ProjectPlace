@@ -42,7 +42,8 @@ public class CentralBaseListServiceImpl implements CentralBaseListService{
 		String s = null;
 		int i = s.length();
 	}
-	public void loadSchema(){
+
+public void loadSchema(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 		DataBaseLoader dataBaseLoader = (DataBaseLoader) context.getBean("listOfDatabases");
 		ArrayList<String> listDatabaseName  =dataBaseLoader.getBaseNames();
