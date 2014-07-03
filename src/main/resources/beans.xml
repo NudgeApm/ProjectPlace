@@ -6,29 +6,29 @@
 	<bean id="dataSourceCSS" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:2278/postgres"/>
-        <property name="username" value="operator"/>
-        <property name="password" value="CastAIP"/>      
+        <property name="username" value="xxx"/>
+        <property name="password" value="yyy"/>      
     </bean>
 
 	<bean id="dataSourceCSS2" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:2280/postgres"/>
-        <property name="username" value="operator"/>
-        <property name="password" value="CastAIP"/>
+        <property name="username" value="xxx"/>
+        <property name="password" value="yyy"/>
     </bean>
 
 	<bean id="dataSourceCSSFAIF" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://faifcssdb:2278/postgres"/>
-        <property name="username" value="operator"/>
-        <property name="password" value="CastAIPx"/>
+        <property name="username" value="xxx"/>
+        <property name="password" value="yyy"/>
     </bean>
         		
     <bean id="dataSourceORA" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@BDROCKS.corp.castsoftware.com:1521:ORA11GBD"/>
-		<property name="username" value="SYSTEM"/>
-		<property name="password" value="CASTx"/>      
+		<property name="username" value="xxx"/>
+		<property name="password" value="yyy"/>      
 	</bean>
 
 	<bean id="Localhost2278" class="com.nla.dao.ForumDAOImpl">
@@ -58,9 +58,9 @@
 	
 	<bean name="dataSourceMySQL" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	    <property name="url" value="jdbc:mysql://184.73.255.67:4300/NUDGE" />
-	    <property name="username" value="sales" />
-	    <property name="password" value="0liG8RfEA8XIhwfm" />
+	    <property name="url" value="jdbc:mysql://123.456.789:8888/xxx" />
+	    <property name="username" value="xxx" />
+	    <property name="password" value="yyy" />
 	</bean>
 	
 	<bean id="databaseMySQL" class="com.nla.dao.BenchmarkDAOImpl">

@@ -38,6 +38,10 @@ public class CentralBaseListServiceImpl implements CentralBaseListService{
 	}
 
 	
+	public void generateNullPointerException(){
+		String s = null;
+		int i = s.length();
+	}
 	public void loadSchema(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 		DataBaseLoader dataBaseLoader = (DataBaseLoader) context.getBean("listOfDatabases");

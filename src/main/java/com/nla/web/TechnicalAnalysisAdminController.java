@@ -65,6 +65,27 @@ public class TechnicalAnalysisAdminController extends AbstractController{
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping("/viewDoesntExist.htm")
+	public String viewDoesntExist(ModelMap model)	{
+		//centralBaseListService.selectOneColumnRecursifEntryPoint();
+		return "technicalAnalysisAdminInexistante";
+	}
+
+	/**
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/viewNullPointerException.htm")
+	public String viewNullPointerException(ModelMap model)	{
+		centralBaseListService.generateNullPointerException();
+		return "technicalAnalysisAdminInexistante";
+	}
+	
+	
+	/**
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/selectProduitCartesien.htm")
 	public String selectProduitCartesien(ModelMap model)	{
 		centralBaseListService.selectCartesianProduct();
