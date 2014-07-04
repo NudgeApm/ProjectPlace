@@ -5,7 +5,6 @@ import com.nla.dao.DataBaseLoader;
 import com.nla.dao.ForumDAO;
 import com.nla.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +29,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     private DataBaseLoader dataBaseLoader;
 
     @Override
-    public void add(ViewCentralBaseList castlog) {
+    public void add(ViewCentralBaseList log) {
     }
 
 
@@ -59,9 +58,9 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
         if (forumDAO.isConnectionOK()) {
             List<Schema> listeSchemaCb2 = (ArrayList) forumDAO.getListSchemaCb();
             List<Schema> listeSchemaKb2 = (ArrayList) forumDAO.getListSchemaKB();
-            forumDAO.updateVersionCAST(listeSchemaCb2);
+            forumDAO.updateVersion(listeSchemaCb2);
             forumDAO.updateLocalSite(listeSchemaCb2);
-            forumDAO.updateSnapshotCAST(listeSchemaCb2);
+            forumDAO.updateSnapshot(listeSchemaCb2);
             forumDAO.updateEnlightenViews(listeSchemaCb2);
             forumDAO.updateActions(listeSchemaCb2);
             forumDAO.updateHealthFactors(listeSchemaCb2);
@@ -177,7 +176,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
                     Application app = new Application();
                     app.setName(a.getName());
                     app.getListSnapshot().add(snap);
-                    app.setVersionCAST(cb.getVersion());
+                    app.setVersion(cb.getVersion());
                     app.setCentralBaseName(cb.getName());
                     app.setMaxLocValue(a.getMaxLocValue());
                     returnVal.add(app);
@@ -216,7 +215,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
         for (Application a : getListApplication()) {
             StringBean sbb = null;
             for (StringBean sb : returnVal) {
-                if (sb.getS().equals(a.getVersionCAST())) {
+                if (sb.getS().equals(a.getVersion())) {
                     sbb = sb;
                 }
             }
@@ -224,7 +223,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
                 sbb.increment();
             } else {
                 sbb = new StringBean();
-                sbb.setS(a.getVersionCAST());
+                sbb.setS(a.getVersion());
                 sbb.increment();
                 returnVal.add(sbb);
             }

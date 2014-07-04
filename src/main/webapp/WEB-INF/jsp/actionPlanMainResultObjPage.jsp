@@ -17,19 +17,19 @@
 				<!-- >th>HF</th-->
 		</tr>
 	</thead>
-	<c:forEach var="objCAST" items="${objectList}">
+	<c:forEach var="obj" items="${objectList}">
 		<tr>
-		<td nowrap>${objCAST.pri}</td>
-		<!-- >td nowrap>${objCAST.metricID}</td-->
-		<td nowrap>${objCAST.objFullName}</td>
-		<td nowrap>${objCAST.metricName}</td>		
-		<!--  td nowrap>${objCAST.objID}</td-->
+		<td nowrap>${obj.pri}</td>
+		<!-- >td nowrap>${obj.metricID}</td-->
+		<td nowrap>${obj.objFullName}</td>
+		<td nowrap>${obj.metricName}</td>		
+		<!--  td nowrap>${obj.objID}</td-->
 		
-		<td nowrap>${objCAST.mWeight}</td>
-		<td nowrap>${objCAST.moduleName}</td>
-		<td nowrap>${objCAST.status}</td>
+		<td nowrap>${obj.mWeight}</td>
+		<td nowrap>${obj.moduleName}</td>
+		<td nowrap>${obj.status}</td>
 		
-		<!-- >td nowrap>${objCAST.hf}</td-->
+		<!-- >td nowrap>${obj.hf}</td-->
 		
 		</tr>
 	</c:forEach>

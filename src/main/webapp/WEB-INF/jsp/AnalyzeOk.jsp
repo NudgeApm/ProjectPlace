@@ -13,16 +13,16 @@
 <body>
 File Details  
 <hr>
-filename : ${castLog.fileName} <br/>
+filename : ${log.fileName} <br/>
 <br>
 Central Bases<br>
 
 <table border='1'> 
 	<tr>
 		<td>Central Bases</td>
-		<td>CAST Version</td>
+		<td>Version</td>
 	</tr>
-<c:forEach var="schema" items="${castLog.listeSchemaCb}">
+<c:forEach var="schema" items="${log.listeSchemaCb}">
 	<tr>
 		<td><a href="detailCentral.htm?schemaName=<c:out value="${schema.name}"/>"><c:out value="${schema.name}"/></a></td>
 		<td><c:out value="${schema.version}"/></td>
@@ -31,7 +31,7 @@ Central Bases<br>
 </table>
 
 Knowledge Bases<br>
-<c:forEach var="schema" items="${castLog.listeSchemaKb}">
+<c:forEach var="schema" items="${log.listeSchemaKb}">
 	- <c:out value="${schema.name}"/><br>
 </c:forEach>
 

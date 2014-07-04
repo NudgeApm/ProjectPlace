@@ -149,7 +149,6 @@ function violation(pName,pLoc,pFilePath,pModule,pId,pSelectedForAP) {
 </table>
 </div>
  <!-- 
-FOR CAST
 <a href='actionPlanDeleteFromAPFromDetailMetric.htm'></a>
 <a href='actionPlanDetailMetricAddObj.htm'></a>
  -->

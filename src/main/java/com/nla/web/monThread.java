@@ -1,25 +1,25 @@
 package com.nla.web;
 
 public class monThread extends Thread {
-	
-	/* le thread dure entre 1 et 10 secondes*/
-	public void run() {
-	    long start = System.currentTimeMillis();
-  		int lower = 1;
-		int higher = 10;
-		int random = (int)(Math.random() * (higher-lower)) + lower;
-		
-	    // boucle tant que la durée de vie du thread est < à n secondes
-	    while( System.currentTimeMillis() < ( start + (1000 * random))) {
-	      // traitement
-	      System.out.println("Ligne affichée par le thread"+random);
-	      try {
-	        // pause
 
-	        Thread.sleep(1000);
-	      }
-	      catch (InterruptedException ex) {}
-	    }
-	    System.out.println("fin du thread");
-	  } 
-	}
+    /* le thread dure entre 1 et 10 secondes*/
+    public void run() {
+        long start = System.currentTimeMillis();
+        int lower = 1;
+        int higher = 10;
+        int random = (int) (Math.random() * (higher - lower)) + lower;
+
+        // boucle tant que la durÔøΩe de vie du thread est < ÔøΩ n secondes
+        while (System.currentTimeMillis() < (start + (1000 * random))) {
+            // traitement
+            System.out.println("Ligne affichÔøΩe par le thread" + random);
+            try {
+                // pause
+
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+            }
+        }
+        System.out.println("fin du thread");
+    }
+}

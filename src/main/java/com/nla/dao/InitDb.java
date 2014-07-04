@@ -12,7 +12,7 @@ public class InitDb {
     private DataSource dataSource;
 
     @PostConstruct
-    public void init(){
+    public void init() {
 
         new JdbcTemplate(dataSource).update("" +
                 "CREATE TABLE account (" +

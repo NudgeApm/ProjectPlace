@@ -33,7 +33,7 @@
         };
 
         var optionsVersion = {
-                title: '# Applications / CAST Version',
+                title: '# Applications / Version',
                 is3D: true, 
                 backgroundColor: '#669966',
                 legend:{position: 'top', textStyle: {color: 'black', fontSize: 8}},

@@ -4,161 +4,163 @@ import java.util.ArrayList;
 
 /**
  * Central Base
- * @author NLA
  *
+ * @author NLA
  */
-public class SchemaCb extends Schema implements  java.io.Serializable {
+public class SchemaCb extends Schema implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	public SchemaCb() {
-		super(null);
-	}
+    public SchemaCb() {
+        super(null);
+    }
 
-	public SchemaCb(String name, ArrayList<Snapshot> snapshotList,
-			ArrayList<EnlightenView> enlightenViewList,
-			ArrayList<String> localSiteList, ArrayList<Action> actionList,
-			ArrayList<Metric> removedMetric, ArrayList<Metric> addedMetric,
-			ArrayList<Metric> paramModifyMetric,
-			ArrayList<Metric> paramModifyMetricSTD,
-			ArrayList<Metric> disabledMetric) {
-		super(name);
-		this.snapshotList = snapshotList;
-		this.enlightenViewList = enlightenViewList;
-		this.localSiteList = localSiteList;
-		this.actionList = actionList;
-		this.removedMetric = removedMetric;
-		this.addedMetric = addedMetric;
-		this.paramModifyMetric = paramModifyMetric;
-		this.paramModifyMetricSTD = paramModifyMetricSTD;
-		this.disabledMetric = disabledMetric;
-	}
+    public SchemaCb(String name, ArrayList<Snapshot> snapshotList,
+                    ArrayList<EnlightenView> enlightenViewList,
+                    ArrayList<String> localSiteList, ArrayList<Action> actionList,
+                    ArrayList<Metric> removedMetric, ArrayList<Metric> addedMetric,
+                    ArrayList<Metric> paramModifyMetric,
+                    ArrayList<Metric> paramModifyMetricSTD,
+                    ArrayList<Metric> disabledMetric) {
+        super(name);
+        this.snapshotList = snapshotList;
+        this.enlightenViewList = enlightenViewList;
+        this.localSiteList = localSiteList;
+        this.actionList = actionList;
+        this.removedMetric = removedMetric;
+        this.addedMetric = addedMetric;
+        this.paramModifyMetric = paramModifyMetric;
+        this.paramModifyMetricSTD = paramModifyMetricSTD;
+        this.disabledMetric = disabledMetric;
+    }
 
-	/**
-	 * number of snapshot
-	 * @param name
-	 */
-	ArrayList<Snapshot> snapshotList = new ArrayList<Snapshot>();
+    /**
+     * number of snapshot
+     *
+     * @param name
+     */
+    ArrayList<Snapshot> snapshotList = new ArrayList<Snapshot>();
 
-	ArrayList<EnlightenView> enlightenViewList = new ArrayList<EnlightenView>();
-	
-	ArrayList<String> localSiteList = new ArrayList<String>();
+    ArrayList<EnlightenView> enlightenViewList = new ArrayList<EnlightenView>();
 
-	ArrayList<Action> actionList = new ArrayList<Action>();
-	
-	// metric removed Versus Reference schema central
-	ArrayList<Metric> removedMetric = new ArrayList<Metric>();
+    ArrayList<String> localSiteList = new ArrayList<String>();
 
-	// metric added Versus Reference schema central
-	ArrayList<Metric> addedMetric = new ArrayList<Metric>();
-	
-	// metric with param modify
-	ArrayList<Metric> paramModifyMetric = new ArrayList<Metric>();
-	
-	// metric with param modify Versus standard
-	ArrayList<Metric> paramModifyMetricSTD = new ArrayList<Metric>();
-	
-	// disabled metric 
-	ArrayList<Metric> disabledMetric = new ArrayList<Metric>();
-	
-	public ArrayList<String> getLocalSiteList() {
-		return localSiteList;
-	}
+    ArrayList<Action> actionList = new ArrayList<Action>();
 
-	public void setLocalSiteList(ArrayList<String> localSiteList) {
-		this.localSiteList = localSiteList;
-	}
+    // metric removed Versus Reference schema central
+    ArrayList<Metric> removedMetric = new ArrayList<Metric>();
 
-	public ArrayList<Snapshot> getSnapshotList() {
-		return snapshotList;
-	}
+    // metric added Versus Reference schema central
+    ArrayList<Metric> addedMetric = new ArrayList<Metric>();
 
-	public void setSnapshotList(ArrayList<Snapshot> snapshotList) {
-		this.snapshotList = snapshotList;
-	}
+    // metric with param modify
+    ArrayList<Metric> paramModifyMetric = new ArrayList<Metric>();
 
-	public SchemaCb(String name) {
-		super(name);
-	}
+    // metric with param modify Versus standard
+    ArrayList<Metric> paramModifyMetricSTD = new ArrayList<Metric>();
 
-	@Override
-	public String getType() {
-		return "Central";
-	}
-	public int getNumberOfSnapshot(){
-		return this.snapshotList.size();
-	}
-	
-	public int getNumberOfEnlightenView(){
-		return this.enlightenViewList.size();
-	}
+    // disabled metric
+    ArrayList<Metric> disabledMetric = new ArrayList<Metric>();
 
-	public int getNumberOfAction(){
-		return this.actionList.size();
-	}
-	
-	public int getNumberOfLocalSite(){
-		return getLocalSiteList().size();
-	}
+    public ArrayList<String> getLocalSiteList() {
+        return localSiteList;
+    }
 
-	public ArrayList<Action> getActionList() {
-		return actionList;
-	}
+    public void setLocalSiteList(ArrayList<String> localSiteList) {
+        this.localSiteList = localSiteList;
+    }
 
-	public void setActionList(ArrayList<Action> actionList) {
-		this.actionList = actionList;
-	}
+    public ArrayList<Snapshot> getSnapshotList() {
+        return snapshotList;
+    }
 
-	public ArrayList<EnlightenView> getEnlightenViewList() {
-		return enlightenViewList;
-	}
+    public void setSnapshotList(ArrayList<Snapshot> snapshotList) {
+        this.snapshotList = snapshotList;
+    }
 
-	public void setEnlightenViewList(ArrayList<EnlightenView> enlightenViewList) {
-		this.enlightenViewList = enlightenViewList;
-	}
+    public SchemaCb(String name) {
+        super(name);
+    }
 
-	public ArrayList<Metric> getRemovedMetric() {
-		return removedMetric;
-	}
+    @Override
+    public String getType() {
+        return "Central";
+    }
 
-	public void setRemovedMetric(ArrayList<Metric> removedMetric) {
-		this.removedMetric = removedMetric;
-	}
+    public int getNumberOfSnapshot() {
+        return this.snapshotList.size();
+    }
 
-	public ArrayList<Metric> getAddedMetric() {
-		return addedMetric;
-	}
+    public int getNumberOfEnlightenView() {
+        return this.enlightenViewList.size();
+    }
 
-	public void setAddedMetric(ArrayList<Metric> addedMetric) {
-		this.addedMetric = addedMetric;
-	}
+    public int getNumberOfAction() {
+        return this.actionList.size();
+    }
 
-	public ArrayList<Metric> getDisabledMetric() {
-		return disabledMetric;
-	}
+    public int getNumberOfLocalSite() {
+        return getLocalSiteList().size();
+    }
 
-	public void setDisabledMetric(ArrayList<Metric> disabledMetric) {
-		this.disabledMetric = disabledMetric;
-	}
+    public ArrayList<Action> getActionList() {
+        return actionList;
+    }
 
-	public ArrayList<Metric> getParamModifyMetric() {
-		return paramModifyMetric;
-	}
+    public void setActionList(ArrayList<Action> actionList) {
+        this.actionList = actionList;
+    }
 
-	public void setParamModifyMetric(ArrayList<Metric> paramModifyMetric) {
-		this.paramModifyMetric = paramModifyMetric;
-	}
+    public ArrayList<EnlightenView> getEnlightenViewList() {
+        return enlightenViewList;
+    }
 
-	public ArrayList<Metric> getParamModifyMetricSTD() {
-		return paramModifyMetricSTD;
-	}
+    public void setEnlightenViewList(ArrayList<EnlightenView> enlightenViewList) {
+        this.enlightenViewList = enlightenViewList;
+    }
 
-	public void setParamModifyMetricSTD(ArrayList<Metric> paramModifyMetricSTD) {
-		this.paramModifyMetricSTD = paramModifyMetricSTD;
-	}
+    public ArrayList<Metric> getRemovedMetric() {
+        return removedMetric;
+    }
 
-	
+    public void setRemovedMetric(ArrayList<Metric> removedMetric) {
+        this.removedMetric = removedMetric;
+    }
+
+    public ArrayList<Metric> getAddedMetric() {
+        return addedMetric;
+    }
+
+    public void setAddedMetric(ArrayList<Metric> addedMetric) {
+        this.addedMetric = addedMetric;
+    }
+
+    public ArrayList<Metric> getDisabledMetric() {
+        return disabledMetric;
+    }
+
+    public void setDisabledMetric(ArrayList<Metric> disabledMetric) {
+        this.disabledMetric = disabledMetric;
+    }
+
+    public ArrayList<Metric> getParamModifyMetric() {
+        return paramModifyMetric;
+    }
+
+    public void setParamModifyMetric(ArrayList<Metric> paramModifyMetric) {
+        this.paramModifyMetric = paramModifyMetric;
+    }
+
+    public ArrayList<Metric> getParamModifyMetricSTD() {
+        return paramModifyMetricSTD;
+    }
+
+    public void setParamModifyMetricSTD(ArrayList<Metric> paramModifyMetricSTD) {
+        this.paramModifyMetricSTD = paramModifyMetricSTD;
+    }
+
+
 }

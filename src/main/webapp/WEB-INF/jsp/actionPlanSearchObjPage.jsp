@@ -106,6 +106,6 @@ function valideForm(){
 </script>
 
 <!-- 
-FOR CAST
+FOR
 <a href='actionPlanMainResultObj.htm'></a>
  -->

@@ -17,7 +17,7 @@ function metric(pRuleName,pNbAction, pId) {
     this.nbAction=pNbAction;
 }
  
-function actionCAST(pMetricID,pObjName,pObjID) {
+function action(pMetricID,pObjName,pObjID) {
 	this.metricID=pMetricID;
     this.objName=pObjName;
     this.objID=pObjID;
@@ -28,8 +28,8 @@ function actionCAST(pMetricID,pObjName,pObjID) {
 	metricList[ind]=mMetric;
 	ind = ind +1;	
 
-	<c:forEach var="actionCAST" items="${metric.actionList}">
-		mAction = new actionCAST('${actionCAST.ruleId}','${actionCAST.objectFullName}','${actionCAST.objectId}');
+	<c:forEach var="action" items="${metric.actionList}">
+		mAction = new action('${action.ruleId}','${action.objectFullName}','${action.objectId}');
 		actionList[indAct]=mAction;
 		indAct = indAct + 1;
 	</c:forEach>
@@ -82,6 +82,5 @@ Action plan summary
 </div>
 
 <!-- 
-FOR CAST
 <a href='actionPlanDeleteFromAP.htm'></a>
  -->

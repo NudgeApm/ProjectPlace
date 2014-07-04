@@ -9,7 +9,7 @@
 	<thead>
 		<th><i class="icon-search"></i>Central Bases</th>
 		<th>Local site (KB)</th>
-		<th>CAST Version</th>
+		<th>Version</th>
 	</thead>
 <c:forEach var="schema" items="${cbList.listeSchemaCb}">
 	<tr>		

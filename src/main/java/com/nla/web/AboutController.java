@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AboutController {
 
-	@RequestMapping("/about.htm")
-	public String redirect()
-	{
-		return "about";
-	}
+    @RequestMapping("/about.htm")
+    public String redirect() {
+        return "about";
+    }
 }

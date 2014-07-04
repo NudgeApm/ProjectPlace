@@ -46,7 +46,7 @@
 		  </div>
 		   <div id="collapseOne${schema.name}" class="accordion-body collapse">
 		      <div class="accordion-inner">
-		        CAST Version: ${schema.version}
+		        Version: ${schema.version}
 		      </div>
 		    </div>		  
 		 </td> 	

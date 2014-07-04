@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>CAST LOG investigation</title>
+<title> LOG investigation</title>
 </head>
 <body>
-<form:form method="POST" commandName="castLog">
+<form:form method="POST" commandName="log">
 	<table>
 		<tr>
-			<td>Cast Log file:</td>
+			<td>Log file:</td>
 			<td><form:input path="fileName" /></td>
 		</tr>		
 		<tr>
