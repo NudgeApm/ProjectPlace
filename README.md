@@ -8,4 +8,4 @@ l'application de test pour Nudge APM
 
 # Exécution
 
-	TODO
+	mvn jetty:run
