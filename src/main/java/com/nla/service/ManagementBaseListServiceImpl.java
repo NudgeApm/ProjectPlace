@@ -9,7 +9,9 @@ import com.nla.dao.DataBaseLoader;
 import com.nla.dao.ForumDAO;
 import com.nla.domain.Schema;
 import com.nla.domain.SchemaMNGT;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ManagementBaseListServiceImpl implements ManagementBaseListService {
 
 	ArrayList<Schema> listeSchemaMNGT;

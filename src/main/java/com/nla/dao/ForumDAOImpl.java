@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.SQLNestedException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -34,11 +35,15 @@ import com.nla.domain.Snapshot;
 import com.nla.domain.StringBean;
 import com.nla.domain.Technology;
 import com.nla.domain.Violation;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ForumDAOImpl implements ForumDAO {
 
 	private JdbcTemplate jdbcTemplate;
-	
+
+
+    @Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}

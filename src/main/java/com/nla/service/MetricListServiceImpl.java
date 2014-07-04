@@ -15,7 +15,9 @@ import com.nla.domain.Metric;
 import com.nla.domain.ObjectCAST;
 import com.nla.domain.Schema;
 import com.nla.domain.Violation;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MetricListServiceImpl implements MetricListService {
 
 	ArrayList<Metric> metricList;

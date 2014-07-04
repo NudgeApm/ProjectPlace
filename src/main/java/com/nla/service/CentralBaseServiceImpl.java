@@ -7,7 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.nla.dao.CentralBaseDAO;
 import com.nla.domain.SchemaCb;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CentralBaseServiceImpl implements CentralBaseService{
 
 	@Override

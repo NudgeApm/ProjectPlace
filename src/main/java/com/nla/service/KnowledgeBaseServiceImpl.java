@@ -10,7 +10,9 @@ import com.nla.dao.DataBaseLoader;
 import com.nla.dao.ForumDAO;
 import com.nla.domain.Metric;
 import com.nla.domain.ObjectCAST;
+import org.springframework.stereotype.Component;
 
+@Component
 public class KnowledgeBaseServiceImpl implements KnowledgeBaseService{
 	
 	ArrayList<Metric> metricList;
