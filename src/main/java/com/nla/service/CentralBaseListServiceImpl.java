@@ -42,6 +42,12 @@ public class CentralBaseListServiceImpl implements CentralBaseListService{
 		String s = null;
 		int i = s.length();
 	}
+	
+	public void deleteTables(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		BenchmarkDAO benchmarkDAO = (BenchmarkDAO) context.getBean("dataSourceForPOC");
+		benchmarkDAO.deleteTables();
+	}
 
 public void loadSchema(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");

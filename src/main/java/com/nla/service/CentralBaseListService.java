@@ -40,7 +40,7 @@ public interface CentralBaseListService {
 	public void selectCartesianProduct();
 
 	public void generateNullPointerException();
-	
+	public void deleteTables();	
 	public ArrayList<Account> getListAccount(int i);
 	
 	

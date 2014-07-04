@@ -22,7 +22,7 @@ public interface BenchmarkDAO {
 	public void selectStar100(int i);
 	public void selectOneColumn();
 	public void selectCartesianProduct();
-	
+	public void deleteTables();
 	public ArrayList<Account> getListAccountDAO(int i);
 	
 }
