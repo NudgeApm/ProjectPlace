@@ -19,7 +19,8 @@
           <a class="btn btn-primary" href="viewDoesntExist.htm">no view there</a>
           <a class="btn btn-primary" href="viewNullPointerException.htm">Null Pointer Exception</a>
               
-          <a class="btn btn-primary" href="selectStar10000Items.htm">select star 10000 items</a>    
+          <a class="btn btn-primary" href="selectStar10000Items.htm">select star 10000 items</a>
+          <a class="btn btn-primary" href="deleteTables.htm">delete tables</a>    
                           
         </ul>
       </div>

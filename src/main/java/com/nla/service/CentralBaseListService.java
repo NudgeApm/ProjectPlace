@@ -51,5 +51,4 @@ public interface CentralBaseListService {
 
     public ArrayList<Account> getListAccount(int i);
 
-
 }

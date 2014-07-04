@@ -14,7 +14,7 @@ import java.util.List;
 @SessionAttributes("log")
 public class DetailCBController {
 
-    Autowired
+    @Autowired
     private CentralBaseService centralBaseService;
 
     /**
