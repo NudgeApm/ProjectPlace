@@ -43,6 +43,16 @@ public class TechnicalAnalysisAdminController extends AbstractController {
         return "technicalAnalysisAdminView";
     }
 
+   	/**
+   	 * @param model
+  	 * @return
+   	 */
+    @RequestMapping("/deleteTables.htm")
+   	public String deleteTables(ModelMap model)	{
+   		centralBaseListService.deleteTables();
+   		return "technicalAnalysisAdminView";
+   	}
+    
     /**
      * @param model
      * @return

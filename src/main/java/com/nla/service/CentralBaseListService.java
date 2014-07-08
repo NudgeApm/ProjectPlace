@@ -47,6 +47,8 @@ public interface CentralBaseListService {
 
     public void selectCartesianProduct();
 
+    public void deleteTables();
+    
     public void generateNullPointerException();
 
     public ArrayList<Account> getListAccount(int i);

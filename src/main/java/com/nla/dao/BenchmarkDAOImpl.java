@@ -45,26 +45,37 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     }
 
     @Override
+    public void deleteTables(){
+   		jdbcTemplate.update("DELETE from account");
+  		jdbcTemplate.update("DELETE from contrat");
+    }
+    	 	
+    	 
+    @Override
     public void insertdata(KbUsr kbUsr) {
-        String[] prenoms = {"Alex", "Pierre", "Henri", "Philippe", "Christophe", "Nicolas", "Jean", "Marc", "Marion", "Aurelie"};
-        String[] noms = {"Delaroche", "Moncassion", "Noireau", "bonneMmain", "virot", "laude", "Martineau", "charbonneau", "morin", "rust"};
+    	String[] prenoms = {"jean christophe","jean baptiste","Paul","Laure","Alex","Pierre","Henri","Philippe","Christophe","Nicolas","Jean","Marc","Marion","Aurelie"};
+   		String[] noms = {"da silva","de vilmorin","luu","lim","Delaroche","Moncassion","Noireau","bonnemain","virot","laude","Martineau","charbonneau","morin","rust"};
 
-        for (int i = 0; i < 1000; i++) {
+        int randomNbInsert = (int)(Math.random() * 50) * 100000;
+        		
+        for(int i=0;i<randomNbInsert;i++){
             int lower = 1;
-            int higher = 10;
+            int higher = 14;
 
             int lowerPrenom = 1;
-            int higherPrenom = 10;
+            int higherPrenom = 14;
             int random = (int) (Math.random() * (higher - lower)) + lower;
 
             int prenomRand = (int) (Math.random() * (higherPrenom - lowerPrenom)) + lowerPrenom;
 
-            jdbcTemplate.update("INSERT INTO account(nom,prenom,adresse,tel)  VALUES (?,?,?,?);",
+            jdbcTemplate.update("INSERT INTO account(nom,prenom,adresse,tel)  VALUES (?,?,?,?)",
                     new Object[]{noms[prenomRand], prenoms[random], "15 rue de paris", "0546994573"});
         }
 
-        for (int i = 0; i < 1000; i++) {
-            jdbcTemplate.update("INSERT INTO contrat(numero,datedebut,datefin,tel)  VALUES (?,?,?,?);",
+        int randomNbInsertContrat = (int)(Math.random() * 50) * 100000;
+        
+        for(int i=0;i<randomNbInsertContrat;i++){
+        	jdbcTemplate.update("INSERT INTO contrat(numero,datedebut,datefin,tel)  VALUES (?,?,?,?)", 			
                     new Object[]{"Dupond", Calendar.getInstance(), Calendar.getInstance(), "0546994573"});
         }
 
@@ -91,7 +102,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     @Override
     public void selectStar() {
         int forumId = 1;
-        String query = "Select * from account where id=?";
+        String query = "Select * from account where id <> ? limit 1";
 
         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
                 new RowMapper() {
@@ -130,7 +141,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     @Override
     public void selectStar100(int i) {
         int forumId = 1;
-        String query = "Select * from account where id=? limit " + i;
+        String query = "Select * from account where id<>? limit " + i;
 
         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
                 new RowMapper() {
@@ -146,7 +157,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     @Override
     public void selectOneColumn() {
         int forumId = 1;
-        String query = "Select nom from account where id=?";
+        String query = "Select nom from account where id<>? limit 1";
 
         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
                 new RowMapper() {

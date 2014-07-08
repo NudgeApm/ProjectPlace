@@ -21,5 +21,6 @@ public interface BenchmarkDAO {
     public void selectCartesianProduct();
 
     public ArrayList<Account> getListAccountDAO(int i);
-
+    
+    public void deleteTables();
 }

@@ -274,6 +274,11 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     }
 
     @Override
+   	public void deleteTables(){
+  		benchmarkDAO.deleteTables();
+   	}
+    
+    @Override
     public void selectCartesianProduct() {
         benchmarkDAO.selectCartesianProduct();
     }
@@ -331,5 +336,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
             selectOneColumnRecursif(random);
         }
     }
+    
+
 
 }
