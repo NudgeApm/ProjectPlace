@@ -33,4 +33,43 @@ public class StatisticController {
 
         return "statisticView";
     }
+    
+    /**
+     * @param model
+     * @return
+     */
+    @RequestMapping("/getTableSize.htm")
+    public String insertData(ModelMap model) {
+        int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        
+        model.addAttribute("nbAccount", nbAccount);
+        model.addAttribute("nbContrat", nbContrat);
+        return "statisticView";
+    }
+    
+    /**
+     * @param model
+     * @return
+     */
+    @RequestMapping("/insertDataBatch.htm")
+    public String insertDataBatch(ModelMap model) {
+        centralBaseListService.insertDataBatch();
+        int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        
+        model.addAttribute("nbAccount", nbAccount);
+        model.addAttribute("nbContrat", nbContrat);
+        return "statisticView";
+    }
+    
+    /**
+     * @param model
+     * @return
+     */
+    @RequestMapping("/lowTransactionAccoringlyToVolumeOfData.htm")
+    public String lowTransactionAccoringlyToVolumeOfData(ModelMap model) {
+    	centralBaseListService.selectOneColumnSlowLoop();
+        return "statisticView";
+    } 
 }

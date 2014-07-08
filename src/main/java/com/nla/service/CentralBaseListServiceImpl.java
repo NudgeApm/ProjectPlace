@@ -289,6 +289,12 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     }
 
     @Override
+    public void insertDataBatch() {
+        benchmarkDAO.insertDataBatch();
+    }
+    
+    
+    @Override
     public void selectStar() {
         benchmarkDAO.selectStar();
     }
@@ -304,6 +310,18 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     }
 
     @Override
+    public int getNumberContrat() {
+        return benchmarkDAO.getNumberContrat();
+    }
+    
+    @Override
+    public int getNumberAccount() {
+        return benchmarkDAO.getNumberAccount();
+    }
+    
+    
+    
+    @Override
     public void selectOneColumn() {
         benchmarkDAO.selectOneColumn();
     }
@@ -315,6 +333,26 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
         }
     }
 
+    @Override
+    public void selectOneColumnSlowLoop() {
+    	int nbContrat =  getNumberContrat();
+    	
+    	long start = System.currentTimeMillis();
+
+        //int random = (int) (Math.random() * nbContrat);
+    	int random = nbContrat / 100;
+    	
+        // boucle tant que la dur�e de vie du thread est < � n secondes
+        while (System.currentTimeMillis() < (start + (random))) {
+        	System.out.println("very slow transactions... in progress " + random/1000 + "seconds");
+        }
+    	
+        for (int i = 0; i < nbContrat; i++) {
+            benchmarkDAO.selectOneColumn();
+        }
+    }
+
+    
     @Override
     public void selectOneColumnRecursifEntryPoint() {
         int lower = 1;

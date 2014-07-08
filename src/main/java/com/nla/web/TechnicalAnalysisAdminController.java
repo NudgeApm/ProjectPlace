@@ -40,7 +40,12 @@ public class TechnicalAnalysisAdminController extends AbstractController {
     @RequestMapping("/insertData.htm")
     public String insertData(ModelMap model) {
         centralBaseListService.insertData();
-        return "technicalAnalysisAdminView";
+        int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        
+        model.addAttribute("nbAccount", nbAccount);
+        model.addAttribute("nbContrat", nbContrat);
+        return "statisticView";
     }
 
    	/**

@@ -23,4 +23,11 @@ public interface BenchmarkDAO {
     public ArrayList<Account> getListAccountDAO(int i);
     
     public void deleteTables();
+    
+    public int getNumberContrat();
+    
+    public int getNumberAccount();
+    
+    public void insertDataBatch();
+    
 }

@@ -49,6 +49,15 @@ public interface CentralBaseListService {
 
     public void deleteTables();
     
+    public int getNumberContrat();
+    
+    public int getNumberAccount();
+    
+    public void insertDataBatch();
+    
+    public void selectOneColumnSlowLoop();
+    
+    
     public void generateNullPointerException();
 
     public ArrayList<Account> getListAccount(int i);
