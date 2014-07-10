@@ -11,18 +11,21 @@ public class Main {
 
     public static final String BASE_URL = "http://dev1/projectPlace/";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
+        doRequest(BASE_URL);
 
-        HttpGet httpget = new HttpGet(BASE_URL);
+        System.out.println("Done !");
+    }
+
+    private static void doRequest(String url) {
+        HttpGet httpget = new HttpGet(url);
         CloseableHttpClient httpClient = HttpClients.createDefault();
-        try (CloseableHttpResponse response = httpClient.execute(httpget)){
-            System.out.println("GET "+ BASE_URL);
+        try (CloseableHttpResponse response = httpClient.execute(httpget)) {
+            System.out.println("GET " + url);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        System.out.println("Done !");
     }
 }
