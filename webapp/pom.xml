@@ -7,7 +7,7 @@
 		<version>2.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>project-place</artifactId>
+	<artifactId>project-place-webapp</artifactId>
 	<packaging>war</packaging>
 
 	<properties>
@@ -140,6 +140,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>projectPlace</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
