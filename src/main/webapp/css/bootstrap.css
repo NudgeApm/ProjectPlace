@@ -4987,13 +4987,15 @@ button.close {
 }
 
 .jumbotron {
-  padding: 20px;
+ // padding: 20px;
   text-align: center;
+  border-radius: 5px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #eeeeee;
+  height: 100px;
 }
 
 .jumbotron h1 {
@@ -5011,7 +5013,7 @@ button.close {
 
 @media screen and (min-width: 30px) {
   .jumbotron {
-    padding-top: 48px;
+   // padding-top: 48px;
   
   }
   .container .jumbotron {
@@ -5023,13 +5025,15 @@ button.close {
   }
 }
 .jumbotronGreen {
-  padding: 20px;
+  //padding: 20px;
+  border-radius: 5px;
   text-align: center;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #666699;
+  height: 100px;
 }
 
 .jumbotronGreen h1 {
@@ -5047,7 +5051,7 @@ button.close {
 
 @media screen and (min-width: 30px) {
   .jumbotronGreen {
-    padding-top: 48px;
+    //padding-top: 48px;
  }
   .container .jumbotronGreen {
     padding-right: 30px;
@@ -5057,6 +5061,81 @@ button.close {
     font-size: 63px;
   }
 }
+.jumbotronRed {
+  //padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #A44057;
+  height: 100px;
+}
 
+.jumbotronRed h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotronRed p {
+  line-height: 1.4;
+}
+
+.container .jumbotronRed {
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 30px) {
+  .jumbotronRed {
+    //padding-top: 48px;
+ }
+  .container .jumbotronRed {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .jumbotronRed h1 {
+    font-size: 63px;
+  }
+}
+
+.jumbotronBleu {
+  //padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #4043A4;
+  height: 100%;
+}
+
+.jumbotronBleu h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotronBleu p {
+  line-height: 1.4;
+}
+
+.container .jumbotronBleu {
+  border-radius: 6px;
+}
+
+@media screen and (min-width: 30px) {
+  .jumbotronBleu {
+    //padding-top: 48px;
+ }
+  .container .jumbotronBleu {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .jumbotronBleu h1 {
+    font-size: 63px;
+  }
+}
 
 .backgroundGraduation { vertical-align:middle; height:8px; background:url(../img/graduation.gif);}
