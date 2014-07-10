@@ -57,7 +57,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     	String[] prenoms = {"jean christophe","jean baptiste","Paul","Laure","Alex","Pierre","Henri","Philippe","Christophe","Nicolas","Jean","Marc","Marion","Aurelie"};
    		String[] noms = {"da silva","de vilmorin","luu","lim","Delaroche","Moncassion","Noireau","bonnemain","virot","laude","Martineau","charbonneau","morin","rust"};
 
-        int randomNbInsert = (int)(Math.random() * 50) * 10000;
+        int randomNbInsert = (int)(Math.random() * 50) * 1000;
         		
         for(int i=0;i<randomNbInsert;i++){
             int lower = 1;
@@ -73,7 +73,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
                     new Object[]{noms[prenomRand], prenoms[random], "15 rue de paris", "0546994573"});
         }
 
-        int randomNbInsertContrat = (int)(Math.random() * 50) * 10000;
+        int randomNbInsertContrat = (int)(Math.random() * 50) * 1000;
         
         for(int i=0;i<randomNbInsertContrat;i++){
         	jdbcTemplate.update("INSERT INTO contrat(numero,datedebut,datefin,tel)  VALUES (?,?,?,?)", 			

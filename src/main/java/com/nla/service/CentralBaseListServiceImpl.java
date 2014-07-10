@@ -340,7 +340,7 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     	long start = System.currentTimeMillis();
 
         //int random = (int) (Math.random() * nbContrat);
-    	int random = nbContrat / 100;
+    	int random = nbContrat / 10;
     	
         // boucle tant que la dur�e de vie du thread est < � n secondes
         while (System.currentTimeMillis() < (start + (random))) {
