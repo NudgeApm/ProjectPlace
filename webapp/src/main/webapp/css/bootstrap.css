@@ -1731,6 +1731,7 @@ legend + .control-group {
 .btn-primary,
 .btn-primary:hover,
 .btn-warning,
+.btn-bullet,
 .btn-warning:hover,
 .btn-danger,
 .btn-danger:hover,
@@ -1801,6 +1802,25 @@ legend + .control-group {
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+.btn-bullet {
+  background-color: #faa732;
+  background-image: -moz-linear-gradient(top, #fbb450, #f89406);
+  background-image: -ms-linear-gradient(top, #fbb450, #f89406);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#f89406));
+  background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
+  background-image: -o-linear-gradient(top, #fbb450, #f89406);
+  background-image: linear-gradient(top, #fbb450, #f89406);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#f89406', GradientType=0);
+  border-color: #f89406 #f89406 #ad6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #f89406;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  font-size: 8px;
+  cellpadding: 0px;  
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
 .btn-warning:hover,
 .btn-warning:active,
 .btn-warning.active,
@@ -5136,6 +5156,76 @@ button.close {
   .jumbotronBleu h1 {
     font-size: 63px;
   }
+}
+
+.posParis{
+position: fixed;
+left: 530px;
+bottom: 570px;
+}
+
+.posMoscou{
+position: fixed;
+left: 650px;
+bottom: 610px;
+}
+.posRio{
+position: fixed;
+left: 380px;
+bottom: 330px;
+}
+.posNewYork{
+position: fixed;
+left: 300px;
+bottom: 530px;
+}
+.posTokio{
+position: fixed;
+left: 900px;
+bottom: 530px;	
+}
+.posHongKong{
+position: fixed;
+left: 830px;
+bottom: 470px;	
+}
+.posChicago{
+position: fixed;
+left: 270px;
+bottom: 550px;	
+}
+.posMumbai{
+position: fixed;
+left: 720px;
+bottom: 470px;	
+}
+.posSanFrancisco{
+position: fixed;
+left: 170px;
+bottom: 530px;	
+}
+.posMadrid{
+position: fixed;
+left: 500px;
+bottom: 540px;	
+}
+.posSydney{
+position: fixed;
+left: 930px;
+bottom: 320px;	
+	
+}
+
+.posJohannesburg{
+position: fixed;
+left: 600px;
+bottom: 330px;	
+}
+
+.posBuenoAires{
+position: fixed;
+left: 350px;
+bottom: 300px;	
 }
 
 .backgroundGraduation { vertical-align:middle; height:8px; background:url(../img/graduation.gif);}

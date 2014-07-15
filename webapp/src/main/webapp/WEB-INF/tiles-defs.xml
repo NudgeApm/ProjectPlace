@@ -48,6 +48,12 @@
       <put-attribute name="body"   value="/WEB-INF/jsp/homePage.jsp"/>      
   </definition>
   
+  <definition name="actionDetailsTile" extends="homeLayout">
+      <put-attribute name="title"  value="HomePage"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/actionDetails.jsp"/>      
+  </definition>
+  
+  
   <!--****************************************************************-->
   <!-- Technical Analysis Administration PAGES                        -->
   <!--****************************************************************-->

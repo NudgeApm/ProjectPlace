@@ -6,122 +6,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table width="750" border="0" align="center" >
-	<tr>
-		<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a  href="runThread.htm">Lancer thread</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4><a  href="selectProduitCartesien.htm">select produit cartesien</a></h4>
-		  </div>
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a  href="selectStar100Items.htm">select Star 100 Items</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4><a  href="selectStar1000Items.htm">select star 1000 items</a></h4>
-		  </div>
-		</td>
-			<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a  href="selectStar10000Items.htm">select star 10000 items</a></h4>  
-		  </div> 
-		</td>
-	</tr>
-	<tr>
-		<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a  href="selectStar.htm">Select star</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4><a  href="selectOneColumn.htm">Select 1 colonne (nom)</a></h4>
-		  </div>
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a href="selectOneColumnRecursif.htm">Select 1 colonne (nom) recursif</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4><a href="selectOneColumnLoop.htm">Select 1 colonne (nom) *100</a></h4>
-		  </div>
-		</td>
-			<td width="150" height="100" >
-		  <div class="jumbotronBleu">
-		  <h4><a  href="insertData.htm">Insert Data</a></h4>  
-		  </div> 
-		</td>
-	</tr>
+<img width="1000px" src="../img/worldMap.png" />
+<div class="posParis"><a  href="runThread.htm"><button type="button" class="btn btn-bullet">Paris</button></a></div>
+<div class="posNewYork"><a  href="selectStar.htm"><button type="button" class="btn btn-bullet">New York</button></a></div>
+<div class="posTokio"><a  href="selectProduitCartesien.htm"><button type="button" class="btn btn-bullet">Tokio</button></a></div>
+<div class="posHongKong"><a  href="selectStar100Items.htm"><button type="button" class="btn btn-bullet">Hong-Kong</button></a></div>
+<div class="posChicago"><a  href="selectStar1000Items.htm"><button type="button" class="btn btn-bullet">Chicago</button></a></div>
+<div class="posMoscou"><a  href="selectStar10000Items.htm"><button type="button" class="btn btn-bullet">Moscou</button></a></div>
+<div class="posRio"><a  href="selectOneColumnRecursif.htm"><button type="button" class="btn btn-bullet">Rio de Janeiro</button></a></div>
+<div class="posJohannesburg"><a  href="selectOneColumn.htm"><button type="button" class="btn btn-bullet">Johannesburg</button></a></div>
+<div class="posBuenoAires"><a  href="selectOneColumnLoop.htm"><button type="button" class="btn btn-bullet">Bueno Aires</button></a></div>
+<div class="posMumbai"><a  href="pageQuiPlante.htm"><button type="button" class="btn btn-bullet">Mumbai</button></a></div>
+<div class="posSanFrancisco"><a  href="viewDoesntExist.htm"><button type="button" class="btn btn-bullet">San Francisco</button></a></div>
+<div class="posMadrid"><a  href="viewNullPointerException.htm"><button type="button" class="btn btn-bullet">Madrid</button></a></div>
+<div class="posSydney"><a  href="lowTransactionAccoringlyToVolumeOfData.htm"><button type="button" class="btn btn-bullet">Sydney</button></a></div>
+<!--  >table width="750" border="0" align="center" >
+		
+		
 	
-	<tr>
-		
-
-		<td width="150" height="100" >
-		  <div class="jumbotronRed">
-  		  <h4><a  href="pageQuiPlante.htm">page qui plante</a></h4>
-		  </div>
-		</td>
-			<td width="150" height="100" >
-		  <div class="jumbotronGreen">
-		  <h4><a  href="#">TO BE DEFINED</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotronRed">
-  		  <h4><a  href="viewDoesntExist.htm">No view there</a></h4>
-		  </div>
-		</td>
-			<td width="150" height="100" >
-		  <div class="jumbotronRed">
-		  <h4><a  href="viewNullPointerException.htm">Null Pointer Exception</a></h4>  
-		  </div> 
-		</td>
-
-		<td width="150" height="100" >
-		  <div class="jumbotronBleu">
-  		  <h4><a  href="getTableSize.htm"> Table size</a></h4>
-		  </div>
-		</td>
-	</tr>
-	<tr>
-		
-		<td width="150" height="100" >
-		  <div class="jumbotronBleu">
+		  <h4><a  href="insertData.htm">Insert Data</a></h4>  
+		  <h4><a  href="getTableSize.htm"> Table size</a></h4>
 		  <h4><a  href="insertDataBatch.htm">Insert Data Batch</a></h4>  
-		  </div> 
-		</td>
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4><a  href="deleteTables.htm">Delete tables</a></h4>
-		  </div>
-		</td>
-			<td width="150" height="100" >
-		  <div class="jumbotronGreen">
+		  <h4><a  href="deleteTables.htm">Delete tables</a></h4>
 		  <h4><a  href="lowTransactionAccoringlyToVolumeOfData.htm">Slow transaction depending on contrat count</a></h4>  
 		  </div> 
 		</td>
 
-		<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4>...</h4>
-		  </div>
-		</td>
-				<td width="150" height="100" >
-		  <div class="jumbotron">
-  		  <h4>...</h4>
-		  </div>
-		</td>
+		
 	</tr>
-</table>
+</table-->
 </body>
 </html>   
           

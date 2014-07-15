@@ -2,6 +2,7 @@ package com.nla.web;
 
 import com.nla.domain.ViewCentralBaseList;
 import com.nla.service.CentralBaseListService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -47,5 +48,11 @@ public class ActionPlanBuilderController extends AbstractController {
         valeur.add("Home");
         valeur.add("Action Plan builder");
         return getBreadcrumbsTemplate(chemin, valeur);
+    }
+    
+    
+    @RequestMapping("/actionDetails.htm")
+    public String redirect() {
+        return "actionDetailsView";
     }
 }
