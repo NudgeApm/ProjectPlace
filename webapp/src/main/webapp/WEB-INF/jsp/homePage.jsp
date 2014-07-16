@@ -7,19 +7,25 @@
 </head>
 <body>
 <img width="1000px" src="../img/worldMap.png" />
-<div class="posParis"><a  href="runThread.htm"><button type="button" class="btn btn-bullet">Paris</button></a></div>
-<div class="posNewYork"><a  href="selectStar.htm"><button type="button" class="btn btn-bullet">New York</button></a></div>
-<div class="posTokio"><a  href="selectProduitCartesien.htm"><button type="button" class="btn btn-bullet">Tokio</button></a></div>
-<div class="posHongKong"><a  href="selectStar100Items.htm"><button type="button" class="btn btn-bullet">Hong-Kong</button></a></div>
-<div class="posChicago"><a  href="selectStar1000Items.htm"><button type="button" class="btn btn-bullet">Chicago</button></a></div>
-<div class="posMoscou"><a  href="selectStar10000Items.htm"><button type="button" class="btn btn-bullet">Moscou</button></a></div>
-<div class="posRio"><a  href="selectOneColumnRecursif.htm"><button type="button" class="btn btn-bullet">Rio de Janeiro</button></a></div>
-<div class="posJohannesburg"><a  href="selectOneColumn.htm"><button type="button" class="btn btn-bullet">Johannesburg</button></a></div>
-<div class="posBuenoAires"><a  href="selectOneColumnLoop.htm"><button type="button" class="btn btn-bullet">Bueno Aires</button></a></div>
-<div class="posMumbai"><a  href="pageQuiPlante.htm"><button type="button" class="btn btn-bullet">Mumbai</button></a></div>
-<div class="posSanFrancisco"><a  href="viewDoesntExist.htm"><button type="button" class="btn btn-bullet">San Francisco</button></a></div>
-<div class="posMadrid"><a  href="viewNullPointerException.htm"><button type="button" class="btn btn-bullet">Madrid</button></a></div>
-<div class="posSydney"><a  href="lowTransactionAccoringlyToVolumeOfData.htm"><button type="button" class="btn btn-bullet">Sydney</button></a></div>
+<table >
+	<tr>
+	<td>${message}</td>
+	</tr>
+</table>
+
+<div class="posParis"><a  href="runParis.htm"><button type="button" class="btn btn-bullet">Paris</button></a></div>
+<div class="posNewYork"><a  href="runNewYork.htm"><button type="button" class="btn btn-bullet">New York</button></a></div>
+<div class="posTokio"><a  href="runTokio.htm"><button type="button" class="btn btn-bullet">Tokio</button></a></div>
+<div class="posHongKong"><a  href="runHongKong.htm"><button type="button" class="btn btn-bullet">Hong-Kong</button></a></div>
+<div class="posChicago"><a  href="runChicago.htm"><button type="button" class="btn btn-bullet">Chicago</button></a></div>
+<div class="posMoscou"><a  href="runMoscou.htm"><button type="button" class="btn btn-bullet">Moscou</button></a></div>
+<div class="posRio"><a  href="runRio.htm"><button type="button" class="btn btn-bullet">Rio de Janeiro</button></a></div>
+<div class="posJohannesburg"><a  href="runJohannesburg.htm"><button type="button" class="btn btn-bullet">Johannesburg</button></a></div>
+<div class="posBuenoAires"><a  href="runBuenoAires.htm"><button type="button" class="btn btn-bullet">Bueno Aires</button></a></div>
+<div class="posMumbai"><a  href="runMumBai.htm"><button type="button" class="btn btn-bullet">Mumbai</button></a></div>
+<div class="posSanFrancisco"><a  href="runSanFrancisco.htm"><button type="button" class="btn btn-bullet">San Francisco</button></a></div>
+<div class="posMadrid"><a  href="runMadrid.htm"><button type="button" class="btn btn-bullet">Madrid</button></a></div>
+<div class="posSydney"><a  href="runSydney.htm"><button type="button" class="btn btn-bullet">Sydney</button></a></div>
 <!--  >table width="750" border="0" align="center" >
 		
 		

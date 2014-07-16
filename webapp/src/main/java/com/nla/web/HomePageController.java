@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.nla.service.CentralBaseListService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * HomePage controller entry point for the web site !
@@ -13,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomePageController {
 
+	@Autowired
+    private CentralBaseListService centralBaseListService;
+    
+	
     /**
      * HOME PAGE entry point for the web site
      * link to
@@ -23,11 +29,25 @@ public class HomePageController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String HomePageFirstPage(ModelMap model) {
-        return "homeView";
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
+    	return "homeView";
     }
 
     @RequestMapping("/homePage.htm")
     public String redirect() {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
         return "homeView";
     }
 
