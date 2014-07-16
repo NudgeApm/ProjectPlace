@@ -2,6 +2,7 @@ package com.nla.web;
 
 import com.nla.domain.ViewCentralBaseList;
 import com.nla.service.CentralBaseListService;
+import com.nla.service.TransactionCityService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +16,22 @@ public class ActionByCityController extends AbstractController {
 
 
     private CentralBaseListService centralBaseListService;
-
+    private TransactionCityService transactionCityService;
+    
     @Autowired
-    public void setLogService(CentralBaseListService pCentralBaseService) {
+    public void setLogxService(CentralBaseListService pCentralBaseService) {
         this.centralBaseListService = pCentralBaseService;
     }
 
+    
+
+    @Autowired
+    public void setLogService(TransactionCityService pTransactionCityService) {
+        this.transactionCityService = pTransactionCityService;
+    }
+
+    
+    
     /**
      * link to:
      * actionPlanBuilderPage.jsp
@@ -62,7 +73,7 @@ public class ActionByCityController extends AbstractController {
     }
     @RequestMapping("/runNewYork.htm")
     public String runNewYork(ModelMap model) {
-    	centralBaseListService.selectStar();
+    	transactionCityService.selectNewYork();
         model.addAttribute("message", "ville active: New York");
         return "homeView";
 
@@ -71,14 +82,15 @@ public class ActionByCityController extends AbstractController {
     @RequestMapping("/runTokio.htm")
     public String runTokio(ModelMap model) {
     	centralBaseListService.selectCartesianProduct();
-        model.addAttribute("message", "ville active: Tokio");
+    	transactionCityService.getHighVolumeData();
+    	model.addAttribute("message", "ville active: Tokio");
         return "homeView";
 
     }
     
     @RequestMapping("/runChicago.htm")
     public String runChicago(ModelMap model) {
-    	centralBaseListService.getListAccount(1000);
+    	transactionCityService.getListAccount(1000);
         model.addAttribute("message", "ville active: Chicago");
         return "homeView";
 
@@ -86,7 +98,7 @@ public class ActionByCityController extends AbstractController {
     
     @RequestMapping("/runHongKong.htm")
     public String runHongKong(ModelMap model) {
-    	centralBaseListService.getListAccount(100);
+    	transactionCityService.getListAccount(100);
         model.addAttribute("message", "ville active: Hong-Kong");
         return "homeView";
 
@@ -94,7 +106,7 @@ public class ActionByCityController extends AbstractController {
 
     @RequestMapping("/runMoscou.htm")
     public String runMoscou(ModelMap model) {
-    	centralBaseListService.getListAccount(10000);
+    	transactionCityService.getListAccount(10000);
         model.addAttribute("message", "ville active: Moscou");
         return "homeView";
 
@@ -110,14 +122,14 @@ public class ActionByCityController extends AbstractController {
     
     @RequestMapping("/runJohannesburg.htm")
     public String runJohannesburg(ModelMap model) {
-    	centralBaseListService.selectOneColumn();
+    	transactionCityService.selectJohannesburgData();
         model.addAttribute("message", "ville active: johannesburg");
         return "homeView";
     }
     
     @RequestMapping("/runBuenoAires.htm")
     public String runBuenoAires(ModelMap model) {
-    	centralBaseListService.selectOneColumnLoop();
+    	transactionCityService.selectBuenoAiresData();
         model.addAttribute("message", "ville active: Bueno Aires");
         return "homeView";
     }
@@ -146,7 +158,7 @@ public class ActionByCityController extends AbstractController {
      */
     @RequestMapping("/runMadrid.htm")
     public String runMadrid(ModelMap model) {
-        centralBaseListService.generateNullPointerException();
+    	transactionCityService.getOneSpecialTransaction();
         model.addAttribute("message", "ville active: Madrid");
         return "technicalAnalysisAdminInexistante";
     }
