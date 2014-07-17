@@ -10,4 +10,6 @@ public interface CityDAO {
 	public void getJohannesburgData();
 	public ArrayList<Account> getListAccountDAO(int i);
 	public void getHighVolumeDataForTokio();
+	public void getSydneyData();
+	public int getNumberContrat();
 }

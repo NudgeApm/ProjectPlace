@@ -10,4 +10,5 @@ public interface TransactionCityService {
 	public ArrayList<Account> getListAccount(int i);
 	public void getHighVolumeData();
 	public void getOneSpecialTransaction();
+	public void executeSydneyTransactions();
 }

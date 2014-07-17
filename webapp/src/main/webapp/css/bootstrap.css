@@ -5228,4 +5228,10 @@ left: 350px;
 bottom: 300px;	
 }
 
+.posActivity{
+position: fixed;
+left: 950px;
+bottom: 150px;	
+}
+
 .backgroundGraduation { vertical-align:middle; height:8px; background:url(../img/graduation.gif);}

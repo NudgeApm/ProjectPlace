@@ -81,7 +81,6 @@ public class ActionByCityController extends AbstractController {
     
     @RequestMapping("/runTokio.htm")
     public String runTokio(ModelMap model) {
-    	centralBaseListService.selectCartesianProduct();
     	transactionCityService.getHighVolumeData();
     	model.addAttribute("message", "ville active: Tokio");
         return "homeView";
@@ -136,8 +135,7 @@ public class ActionByCityController extends AbstractController {
     
     @RequestMapping("/runMumbai.htm")
     public String runMumbai(ModelMap model) {
-    	centralBaseListService.selectOneColumnLoop();
-    	centralBaseListService.getListAccount(10000);
+    	transactionCityService.getOneSpecialTransaction();
     	model.addAttribute("message", "ville active: Mumbai");
         return "homeViewx";
     }
@@ -148,7 +146,6 @@ public class ActionByCityController extends AbstractController {
      */
     @RequestMapping("/runSanFrancisco.htm")
     public String runSanFrancisco(ModelMap model) {
-        centralBaseListService.selectOneColumnRecursifEntryPoint();
         model.addAttribute("message", "ville active: San Francisco");
         return "technicalAnalysisAdminInexistante";
     }
@@ -158,7 +155,6 @@ public class ActionByCityController extends AbstractController {
      */
     @RequestMapping("/runMadrid.htm")
     public String runMadrid(ModelMap model) {
-    	transactionCityService.getOneSpecialTransaction();
         model.addAttribute("message", "ville active: Madrid");
         return "technicalAnalysisAdminInexistante";
     }
@@ -169,8 +165,19 @@ public class ActionByCityController extends AbstractController {
      */
     @RequestMapping("/runSydney.htm")
     public String runSydney(ModelMap model) {
-    	centralBaseListService.selectOneColumnSlowLoop();
+    	transactionCityService.executeSydneyTransactions();
     	model.addAttribute("message", "ville active: Sydney");
+        return "homeView";
+    } 
+ 
+    /**
+     * @param model
+     * @return
+     */
+    @RequestMapping("/runActivity.htm")
+    public String runActivity(ModelMap model) {
+    	centralBaseListService.insertData();
+    	model.addAttribute("message", "augmentation de l'activité simulée");
         return "homeView";
     } 
     

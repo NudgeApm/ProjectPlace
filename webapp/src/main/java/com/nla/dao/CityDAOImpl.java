@@ -31,6 +31,21 @@ public class CityDAOImpl implements CityDAO{
     public void postConstruct() {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
+    
+    @Override
+    public int getNumberContrat(){
+    	
+        String query = "select count(1) nb from contrat";
+
+        Integer nbContrat = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
+                new RowMapper() {
+                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                        return resultSet.getInt("nb");
+                    }
+                });
+        return nbContrat.intValue();
+    }
+
 
     @Override
     public void getOneData(){
@@ -93,6 +108,21 @@ public class CityDAOImpl implements CityDAO{
                 });
 
         String t = s;
+    }
+    
+    @Override
+    public void getSydneyData(){
+    	 int forumId = 1;
+         String query = "Select nom from account where id<>? limit 1";
+
+         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
+                 new RowMapper() {
+                     public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                         return resultSet.getString("nom");
+                     }
+                 });
+
+         String t = s;
     }
     
     @Override

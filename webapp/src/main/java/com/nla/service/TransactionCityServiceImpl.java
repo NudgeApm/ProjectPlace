@@ -113,6 +113,23 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         return cal.getTime();
     }
     
-    
+    @Override
+    public void executeSydneyTransactions(){
+    	int nbContrat =  cityDAO.getNumberContrat();
+    	
+    	long start = System.currentTimeMillis();
+
+        //int random = (int) (Math.random() * nbContrat);
+    	int random = nbContrat / 10;
+    	
+        // boucle tant que la dur�e de vie du thread est < � n secondes
+        while (System.currentTimeMillis() < (start + (random))) {
+        	System.out.println("very slow transactions... in progress " + random/1000 + "seconds");
+        }
+    	
+        for (int i = 0; i < nbContrat; i++) {
+        	cityDAO.getSydneyData();
+        }
+    }
 	
 }
