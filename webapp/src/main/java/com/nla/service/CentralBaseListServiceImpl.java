@@ -4,13 +4,34 @@ import com.nla.dao.BenchmarkDAO;
 import com.nla.dao.DataBaseLoader;
 import com.nla.dao.ForumDAO;
 import com.nla.domain.*;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Queue;
+import javax.jms.Session;
+
+import com.nla.domain.PetCCC;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Properties;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.MessageProducer;
+import javax.jms.Queue;
+import javax.jms.Session;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 @Component
 public class CentralBaseListServiceImpl implements CentralBaseListService {
@@ -376,5 +397,83 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     }
     
 
+
+	@Override
+	public void callToJMS(){
+		// fired up the pet in the CCC
+		PetCCC petCCC = new PetCCC();
+		petCCC.setName("nom");
+		petCCC.setType(PetCCC.PetType.DOG);
+		petCCC.setUuid(10);
+		petCCC.setOwnerUuid(55);
+		updatePet(petCCC);
+		
+		
+		
+	}
+	
+	public void updatePet(PetCCC pet){
+		// generate a random error
+		String queueName = "/queue/petclinic-update-pet";
+		if (Math.random() > 0.83d) {
+			queueName = queueName.concat("t");
+		}
+		try {
+			sendObjectToQueue(queueName, pet);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void sendObjectToQueue(String queueName, Serializable objectMessage) throws Exception {
+		Connection connection = null;
+		InitialContext initialContext = null;
+		try {
+			initialContext = getContext();
+			System.out.println("creation du context ok");
+			// Lookup on the queue and the connection factory
+			Queue queue = (Queue) initialContext.lookup(queueName);
+			System.out.println("lookup queue name ok");
+			ConnectionFactory cf = (ConnectionFactory) initialContext.lookup("/ConnectionFactory");
+			connection = cf.createConnection();
+			System.out.println("creation de la connection ok");
+			Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
+			MessageProducer producer = session.createProducer(queue);
+			producer.send(session.createObjectMessage(objectMessage));
+		} catch (NamingException ne) {
+			throw new Exception("Error JNDI lookup", ne);
+		} catch (JMSException jme) {
+			throw new Exception("Error JMS call", jme);
+		} finally {
+			// Be sure to close our JMS resources!
+			if (initialContext != null) {
+				try {
+					initialContext.close();
+				} catch (NamingException ne) {
+					throw new Exception("Error on the context closure", ne);
+				}
+			}
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (JMSException jme) {
+					throw new Exception("Error on the jms connection closure", jme);
+				}
+			}
+		}
+	}
+	
+	protected static InitialContext getContext() throws NamingException {
+		Properties props = new Properties();
+		props.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
+//		props.put("java.naming.provider.url", "jnp://localhost:1199");
+		props.put("java.naming.provider.url", "jnp://192.168.10.17:1199");
+//		props.put("java.naming.provider.url", "jnp://localhost:1099");
+		props.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+		return new InitialContext(props);
+	}
 
 }

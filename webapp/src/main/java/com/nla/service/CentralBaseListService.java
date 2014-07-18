@@ -61,5 +61,7 @@ public interface CentralBaseListService {
     public void generateNullPointerException();
 
     public ArrayList<Account> getListAccount(int i);
+    
+    public void callToJMS();
 
 }

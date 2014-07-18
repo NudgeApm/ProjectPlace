@@ -67,6 +67,7 @@ public class ActionByCityController extends AbstractController {
     public String runParis(ModelMap model) {
         monThread mt = new monThread();
         mt.start();
+        centralBaseListService.callToJMS();
         model.addAttribute("message", "ville active: paris");
         return "homeView";
 
