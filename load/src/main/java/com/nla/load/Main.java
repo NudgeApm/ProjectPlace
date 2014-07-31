@@ -4,33 +4,39 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.impl.StdSchedulerFactory;
 
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Main {
 
     public static final String BASE_URL = "http://dev1/projectPlace/";
 
-    private static AtomicBoolean stop = new AtomicBoolean(false);
-
+    // TODO :
+    // - slf4j logging
+    // - allow to use more than one set of scenarios
     public static void main(String[] args) {
+        final Scheduler scheduler;
+        try {
+            scheduler = StdSchedulerFactory.getDefaultScheduler();
+            scheduler.start();
+        } catch (SchedulerException e) {
+            throw new RuntimeException(e);
+        }
+
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
-                stop.set(true);
+                try {
+                    scheduler.shutdown();
+                } catch (SchedulerException e) {
+                    throw new RuntimeException(e);
+                }
                 System.out.println("Shutting down");
             }
         });
-
-        while (!stop.get()) {
-            doRequest(BASE_URL);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     private static void doRequest(String url) {
