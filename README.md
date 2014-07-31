@@ -16,4 +16,6 @@ l'application est accessible via [http://localhost:8080/]
 # Exécution - Application de charge
 
 	cd load
-	java -jar ./target/*-jar-with-dependencies.jar
+	./run.sh <fichier-de-scenario>
+
+Des exemples de scénarios sont fournis dans le répertoire "scenarios".
