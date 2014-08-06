@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img width="1000px" src="../img/worldMap.png" />
+<img width="1000px" src="./img/worldMap.png" />
 <table >
 	<tr>
 	<td>${message}</td>

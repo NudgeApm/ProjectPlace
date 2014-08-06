@@ -17,6 +17,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
@@ -121,6 +125,7 @@ public class Main {
                     .build();
 
             scheduler.scheduleJob(job, trigger);
+            i++;
         }
 
     }
@@ -129,7 +134,10 @@ public class Main {
         HttpGet httpget = new HttpGet(url);
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try (CloseableHttpResponse response = httpClient.execute(httpget)) {
-            log.info("GET " + url);
+            //Calendar dateDepart = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/dd/MM hh:mm:ss" );
+                      
+            log.info(sdf.format(new Date()) + "GET " + url);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

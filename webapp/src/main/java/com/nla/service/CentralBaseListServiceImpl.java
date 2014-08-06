@@ -30,6 +30,7 @@ import javax.jms.JMSException;
 import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -415,10 +416,10 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
 	public void updatePet(PetCCC pet){
 		// generate a random error
 		String queueName = "/queue/petclinic-update-pet";
-		if (Math.random() > 0.83d) {
+/*		if (Math.random() > 0.83d) {
 			queueName = queueName.concat("t");
 		}
-		try {
+*/		try {
 			sendObjectToQueue(queueName, pet);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -470,9 +471,10 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
 		Properties props = new Properties();
 		props.put("java.naming.factory.initial", "org.jnp.interfaces.NamingContextFactory");
 //		props.put("java.naming.provider.url", "jnp://localhost:1199");
-		props.put("java.naming.provider.url", "jnp://192.168.10.17:1199");
+//		Context.PROVIDER_URL
+		props.put( Context.PROVIDER_URL, "jnp://192.168.10.17:1199");
 //		props.put("java.naming.provider.url", "jnp://localhost:1099");
-		props.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
+//		props.put("java.naming.factory.url.pkgs", "org.jboss.naming:org.jnp.interfaces");
 		return new InitialContext(props);
 	}
 
