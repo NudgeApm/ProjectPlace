@@ -1,0 +1,16 @@
+0/30 * 9-11,14-17 ? * MON-FRI;http://dev1/projectPlace/runNewYork.htm
+10 0/1 9-11,14-17 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+11 0/1 9-11,14-16 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+11 0/5 10,15 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+15 0/3 10,14 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+20 0/1 9-11,14-17 ? * MON-FRI;http://dev1/projectPlace/runHongKong.htm
+23 0/5 9-10,14-16 ? * MON-FRI;http://dev1/projectPlace/runHongKong.htm
+38 0/10 10,15 ? * MON-FRI;http://dev1/projectPlace/runHongKong.htm
+40 0/5 9-11,14-17 ? * MON-FRI;http://dev1/projectPlace/runMoscou.htm
+5 0/10 11,14,16-17 ? * MON-FRI;http://dev1/projectPlace/runTokio.htm
+2 0/15 11,14,16-17 ? * MON-FRI;http://dev1/projectPlace/runParis.htm
+0 5 0/1 ? * MON-FRI;http://dev1/projectPlace/runActivity.htm
+0 15 18 ? * MON-FRI;http://dev1/projectPlace/deleteTables.htm
+3 15 11,14,16 ? * MON-FRI;http://dev1/projectPlace/runMumbai.htm
+3 34 11,16 ? * MON-FRI;http://dev1/projectPlace/runMadrid.htm
+6 32 10,16 ? * MON-FRI;http://dev1/projectPlace/runSydney.htm
