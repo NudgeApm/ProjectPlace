@@ -136,8 +136,9 @@ public class Main {
         try (CloseableHttpResponse response = httpClient.execute(httpget)) {
             //Calendar dateDepart = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/dd/MM hh:mm:ss" );
-                      
-            log.info(sdf.format(new Date()) + "GET " + url);
+
+            String status = response.getStatusLine().getStatusCode() == 200 ? "OK" : "ERROR";
+            log.info(sdf.format(new Date()) + " "+ status +" GET " + url);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
