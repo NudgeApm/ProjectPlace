@@ -3,7 +3,9 @@
 9 0/1 11 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
 13 0/1 11 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
 8 0/1 14 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
-11 0/1 9-11,14-16 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+43 0/1 9-10,14-15 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+0/20 * 10 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
+0/10 * 15 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
 11 0/5 10,15 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
 15 0/3 10,14 ? * MON-FRI;http://dev1/projectPlace/runChicago.htm
 20 0/1 9-11,14-17 ? * MON-FRI;http://dev1/projectPlace/runHongKong.htm
