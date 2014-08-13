@@ -31,5 +31,26 @@ public class InitDb {
                 "  datefin date," +
                 "  tel varchar(50)" +
                 ")");
+        
+        new JdbcTemplate(dataSource).update("" +
+                "CREATE TABLE sales (" +
+                "  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+                "  item_id int," +
+                "  city_id int," +
+                "  numberSale int" +
+                ")");
+        
+        new JdbcTemplate(dataSource).update("" +
+                "CREATE TABLE reference_produt (" +
+                "  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+                "  product varchar(50)," +
+                "  price int" +
+                ")");
+        
+        new JdbcTemplate(dataSource).update("" +
+                "CREATE TABLE reference_city (" +
+                "  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+                "  label varchar(50)" +
+                ")");
     }
 }

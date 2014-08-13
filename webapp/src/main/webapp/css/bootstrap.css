@@ -5159,79 +5159,79 @@ button.close {
 }
 
 .posParis{
-position: fixed;
-left: 530px;
-bottom: 570px;
+position: relative;
+left: 470px;
+bottom: 450px;
 }
 
 .posMoscou{
-position: fixed;
-left: 650px;
+position: relative;
+left: 550px;
 bottom: 610px;
 }
 .posRio{
-position: fixed;
-left: 380px;
-bottom: 330px;
+position: relative;
+left: 330px;
+bottom: 390px;
 }
 .posNewYork{
-position: fixed;
-left: 300px;
-bottom: 530px;
+position: relative;
+left: 250px;
+bottom: 470px;
 }
 .posTokio{
-position: fixed;
-left: 900px;
-bottom: 530px;	
+position: relative;
+left: 820px;
+bottom: 450px;	
 }
 .posHongKong{
-position: fixed;
-left: 830px;
-bottom: 470px;	
+position: relative;
+left: 760px;
+bottom: 430px;	
 }
 .posChicago{
-position: fixed;
-left: 270px;
+position: relative;
+left: 210px;
 bottom: 550px;	
 }
 .posMumbai{
-position: fixed;
-left: 720px;
-bottom: 470px;	
+position: relative;
+left: 680px;
+bottom: 550px;	
 }
 .posSanFrancisco{
-position: fixed;
-left: 170px;
-bottom: 530px;	
+position: relative;
+left: 100px;
+bottom: 650px;	
 }
 .posMadrid{
-position: fixed;
-left: 500px;
-bottom: 540px;	
+position: relative;
+left: 450px;
+bottom: 690px;	
 }
 .posSydney{
-position: fixed;
-left: 930px;
-bottom: 320px;	
+position: relative;
+left: 880px;
+bottom: 490px;	
 	
 }
 
 .posJohannesburg{
-position: fixed;
-left: 600px;
-bottom: 330px;	
+position: relative;
+left: 520px;
+bottom: 360px;	
 }
 
 .posBuenoAires{
-position: fixed;
-left: 350px;
-bottom: 300px;	
+position: relative;
+left: 300px;
+bottom: 370px;	
 }
 
 .posActivity{
-position: fixed;
+position: relative;
 left: 950px;
-bottom: 150px;	
+bottom: 300px;	
 }
 
 .backgroundGraduation { vertical-align:middle; height:8px; background:url(../img/graduation.gif);}
