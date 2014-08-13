@@ -9,3 +9,6 @@
 
 # idea stuff
 *.iml
+
+# nohup execution output
+nohup.out
