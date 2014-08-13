@@ -41,7 +41,7 @@ public class InitDb {
                 ")");
         
         new JdbcTemplate(dataSource).update("" +
-                "CREATE TABLE reference_produt (" +
+                "CREATE TABLE reference_product (" +
                 "  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
                 "  product varchar(50)," +
                 "  price int" +

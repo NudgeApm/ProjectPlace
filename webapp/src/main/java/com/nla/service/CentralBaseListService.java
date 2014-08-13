@@ -27,12 +27,16 @@ public interface CentralBaseListService {
 
     public ArrayList<Technology> getListTechnologies();
 
+    public ArrayList<Sale> getSalesSummary(String pCity);
+    
     public ArrayList<StringBean> getListVersion();
 
     public void loadApplications();
 
     public void setMaxLocForAllApp();
 
+    public void initDB();
+    
     public void insertData();
 
     public void selectStar();

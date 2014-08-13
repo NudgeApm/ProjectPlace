@@ -27,6 +27,25 @@
 <div class="posMadrid"><a  href="runMadrid.htm"><button type="button" class="btn btn-bullet">Madrid</button></a></div>
 <div class="posSydney"><a  href="runSydney.htm"><button type="button" class="btn btn-bullet">Sydney</button></a></div>
 <div class="posActivity"><a  href="runActivity.htm"><button type="button" class="btn btn-bullet">bilan activité</button></a></div>
+Résumé des ventes
+<table border='1' class="table-bordered " align="center" > 
+	<thead>
+		<th>Produit</th>
+		<th>Pays</th>
+		<th># ventes</th>
+		<th>CA</th>
+	</thead>
+<c:forEach var="s" items="${sales}">
+	<tr>		
+		<td><c:out value="${s.product}"/></td>
+		<td><c:out value="${s.city}"/></td>
+		<td><c:out value="${s.numberOfSales}"/></td>
+		<td><c:out value="${s.revenue}"/></td>
+	</tr>
+</c:forEach>
+</table>
+
+
 
 
 <!--  >table width="750" border="0" align="center" >

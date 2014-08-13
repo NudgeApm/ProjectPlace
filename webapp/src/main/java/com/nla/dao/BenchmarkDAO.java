@@ -2,6 +2,7 @@ package com.nla.dao;
 
 
 import com.nla.domain.Account;
+import com.nla.domain.Sale;
 import com.nla.domain.KbUsr;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ public interface BenchmarkDAO {
 
     public void insertdata(KbUsr kbUsr);
 
+    public void initDB();
+    
     public void selectStar();
 
     public void selectStar100(int i);
@@ -30,4 +33,5 @@ public interface BenchmarkDAO {
     
     public void insertDataBatch();
     
+    public ArrayList<Sale> getSalesSummary(String pCity);
 }

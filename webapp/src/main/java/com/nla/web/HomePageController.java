@@ -40,14 +40,17 @@ public class HomePageController {
     }
 
     @RequestMapping("/homePage.htm")
-    public String redirect() {
+    public String redirect(ModelMap model) {
     	int nbContrat = centralBaseListService.getNumberContrat();
         int nbAccount = centralBaseListService.getNumberAccount();
         System.out.println("nombre de contrat ="+nbContrat);
         if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
         	centralBaseListService.insertData();
         	centralBaseListService.insertDataBatch();
         }
+        
+        
         return "homeView";
     }
 

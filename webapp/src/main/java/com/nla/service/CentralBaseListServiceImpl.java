@@ -309,6 +309,11 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     public void insertData() {
         benchmarkDAO.insertdata(null);
     }
+    
+    @Override
+    public void initDB(){
+    	benchmarkDAO.initDB();
+    }
 
     @Override
     public void insertDataBatch() {
@@ -334,6 +339,11 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     @Override
     public int getNumberContrat() {
         return benchmarkDAO.getNumberContrat();
+    }
+    
+    @Override 
+    public ArrayList<Sale> getSalesSummary(String pCity){
+    	return benchmarkDAO.getSalesSummary(pCity);
     }
     
     @Override

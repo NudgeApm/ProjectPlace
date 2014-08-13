@@ -153,6 +153,7 @@ public class TechnicalAnalysisAdminController extends AbstractController {
     public String selectStar100Items(ModelMap model) {
         //centralBaseListService.selectStar100(100);
         model.addAttribute("account", centralBaseListService.getListAccount(100));
+        //model.addAttribute("sales", centralBaseListService.getSalesSummary());
         return "technicalAnalysisAdminAppView";
     }
 

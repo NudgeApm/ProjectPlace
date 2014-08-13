@@ -20,6 +20,14 @@
       <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
       <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
   </definition>
+  
+  <definition name="saleLayout" template="/WEB-INF/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/tiles/menuSale.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/tiles/body.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
    
   <definition name="searchLayout" template="/WEB-INF/tiles/searchLayout.jsp">
       <put-attribute name="title"  value="Template"/>
@@ -73,6 +81,14 @@
       <put-attribute name="title"  value="Technical Analysis Administration - Central bases"/>
       <put-attribute name="body"   value="/WEB-INF/jsp/technicalAnalysisAdminCentralBasePage.jsp"/>      
   </definition>
+  
+  <definition name="SalesByCityTile" extends="saleLayout">
+      <put-attribute name="title"  value="Sales by city"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/SalesByCityPage.jsp"/>      
+  </definition>
+  
+  
+  
   
   <definition name="detailCBTile" extends="baseLayout">
       <put-attribute name="title"  value="detail CB"/>
