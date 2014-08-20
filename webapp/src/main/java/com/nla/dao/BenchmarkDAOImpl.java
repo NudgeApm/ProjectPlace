@@ -54,6 +54,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     public void deleteTables(){
    		jdbcTemplate.update("DELETE from account");
   		jdbcTemplate.update("DELETE from contrat");
+  		jdbcTemplate.update("DELETE from sales");
     }
     	
     @Override
@@ -96,11 +97,40 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     	 
     @Override
     public void insertdata(KbUsr kbUsr) {
-    	String[] prenoms = {"jean christophe","jean baptiste","Paul","Laure","Alex","Pierre","Henri","Philippe","Christophe","Nicolas","Jean","Marc","Marion","Aurelie"};
+    	
+        int randomNbInsertSale = (int)(Math.random() * 50) * 1000;
+        
+        for(int i=0;i<randomNbInsertSale;i++){
+	        String query = "SELECT id FROM reference_city ORDER BY RAND() LIMIT 1";
+	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
+	                new RowMapper() {
+	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+	                        return resultSet.getInt("id");
+	                    }
+	                });
+	        
+	        query = "SELECT id FROM reference_product ORDER BY RAND() LIMIT 1";
+	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
+	                new RowMapper() {
+	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+	                        return resultSet.getInt("id");
+	                    }
+	                });
+	        
+	        
+	       	int randomNbSale = (int)(Math.random() * 50) * 100;
+		    jdbcTemplate.update("INSERT INTO sales(item_id,city_id,numberSale)  VALUES (?,?,?)",
+		                new Object[]{product_id.intValue(),city_id.intValue(),randomNbSale});
+	     
+        
+        } 
+        
+        
+        String[] prenoms = {"jean christophe","jean baptiste","Paul","Laure","Alex","Pierre","Henri","Philippe","Christophe","Nicolas","Jean","Marc","Marion","Aurelie"};
    		String[] noms = {"da silva","de vilmorin","luu","lim","Delaroche","Moncassion","Noireau","bonnemain","virot","laude","Martineau","charbonneau","morin","rust"};
 
    		
-        int randomNbInsert = (int)(Math.random() * 50) * 1000;
+        int randomNbInsert = (int)(Math.random() * 5) * 100;
         		
         for(int i=0;i<randomNbInsert;i++){
             int lower = 1;
@@ -125,30 +155,6 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
         
         
         
-        int randomNbInsertSale = (int)(Math.random() * 50) * 1000;
-        
-        for(int i=0;i<randomNbInsertSale;i++){
-	        String query = "SELECT id FROM reference_city ORDER BY RAND() LIMIT 1";
-	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
-	                new RowMapper() {
-	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-	                        return resultSet.getInt("id");
-	                    }
-	                });
-	        
-	        query = "SELECT id FROM reference_product ORDER BY RAND() LIMIT 1";
-	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
-	                new RowMapper() {
-	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-	                        return resultSet.getInt("id");
-	                    }
-	                });
-	        
-	        
-	       	int randomNbSale = (int)(Math.random() * 50) * 100;
-		    jdbcTemplate.update("INSERT INTO sales(item_id,city_id,numberSale)  VALUES (?,?,?)",
-		                new Object[]{product_id.intValue(),city_id.intValue(),randomNbSale});
-	     } 
         
     }
     
@@ -224,7 +230,8 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     @Override
     public ArrayList<Sale> getSalesSummary(String pCity){
 	  String query = "select rp.product product, rc.label city, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label ";
-      List<Sale> saleList = jdbcTemplate.query(
+      int nbSales = 0;
+	  List<Sale> saleList = jdbcTemplate.query(
               query,
               new Object[]{},
               new RowMapper() {
@@ -233,12 +240,18 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
                       s.setProduct(rs.getString("product"));
                       s.setCity(rs.getString("city"));
                       s.setNumberOfSales(rs.getInt("nbSales"));
+                      
                       s.setRevenue(0);
                       return s;
                   }
               }
       );
-      System.out.println("nombre de ventes ="+saleList.size());	
+	  
+	  for(Sale s: saleList){
+		  nbSales += s.getNumberOfSales();
+	  }
+	  
+      System.out.println("nombre de ventes à:" + pCity + " = "+ nbSales);	
       
       return (ArrayList) saleList;
     }

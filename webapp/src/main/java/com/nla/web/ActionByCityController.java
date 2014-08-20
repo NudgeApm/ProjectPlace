@@ -108,7 +108,8 @@ public class ActionByCityController extends AbstractController {
     public String runHongKong(ModelMap model) {
     	transactionCityService.getListAccount(100);
         model.addAttribute("message", "ville active: Hong-Kong");
-        return "homeView";
+        model.addAttribute("sales", centralBaseListService.getSalesSummary("Hong Kong"));
+        return "salesByCityView";
 
     }
 

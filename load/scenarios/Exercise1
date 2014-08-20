@@ -1,0 +1,4 @@
+0/10 * * * * ?;http://localhost:8080/runNewYork.htm
+0/10 * * * * ?;http://localhost:8080/runTokio.htm
+0/10 * * * * ?;http://localhost:8080/runMoscou.htm
+0 0/5 * * * ?;http://localhost:8080/runActivity.htm
