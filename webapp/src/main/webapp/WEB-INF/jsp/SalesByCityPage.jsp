@@ -2,22 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<h2>Functional view <c:out value="${NBapplications}"/> Applications</h2>
+<h2>bilan des ventes</h2>
 <div class="cadreNLA">
-
+Total des ventes : <c:out value="${nbSales}"/>
 <table border='1' class="table-bordered " align="center" > 
 	<thead>
 		<th>Produit</th>
 		<th>Ville</th>
 		<th># ventes</th>
-		<th>CA</th>
+		
 	</thead>
 <c:forEach var="s" items="${sales}">
 	<tr>		
 		<td><c:out value="${s.product}"/></td>
 		<td><c:out value="${s.city}"/></td>
+		
 		<td><c:out value="${s.numberOfSales}"/></td>
-		<td><c:out value="${s.revenue}"/></td>
 	</tr>
 </c:forEach>
 </table>

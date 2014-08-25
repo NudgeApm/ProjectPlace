@@ -38,6 +38,8 @@ public interface CentralBaseListService {
     public void initDB();
     
     public void insertData();
+    
+    public int getNumberOfSale(String pCity);
 
     public void selectStar();
 

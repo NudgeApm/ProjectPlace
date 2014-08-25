@@ -61,16 +61,31 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     public void initDB(){
     	
    		ArrayList<Produit> listProduct = new ArrayList<Produit>();
-   		listProduct.add(new Produit("Pull",35));
-   		listProduct.add(new Produit("tee-shirt",15));
-   		listProduct.add(new Produit("Pantalon",30));
-   		listProduct.add(new Produit("Shirt",12));
-   		listProduct.add(new Produit("Chemise",45));
-   		listProduct.add(new Produit("Veste",55));
+   		listProduct.add(new Produit("Pull à carreau noir col V","la description du produit ici blablablalba",35));
+   		listProduct.add(new Produit("tee-shirt","la description du produit ici blablablalba",15));
+   		listProduct.add(new Produit("Pantalon beige","la description du produit ici blablablalba",30));
+   		listProduct.add(new Produit("Shirt","la description du produit ici blablablalba",12));
+   		listProduct.add(new Produit("Chemise rayures noir et blanc","la description du produit ici blablablalba",45));
+   		listProduct.add(new Produit("Veste en velour bordeaux","la description du produit ici blablablalba",55));
+   		listProduct.add(new Produit("Chaussette","la description du produit ici blablablalba",3));
+   		listProduct.add(new Produit("Manteau","la description du produit ici blablablalba",145));
+   		listProduct.add(new Produit("Chapeau","la description du produit ici blablablalba",15));
+   		listProduct.add(new Produit("gants en cuir","la description du produit ici blablablalba",45));
+   		listProduct.add(new Produit("Chemise blanche","la description du produit ici blablablalba",40));
+   		listProduct.add(new Produit("Chemise à carreau","la description du produit ici blablablalba",45));
+   		listProduct.add(new Produit("Chemise Bleu","la description du produit ici blablablalba",55));
+   		listProduct.add(new Produit("jean bleu classique","la description du produit ici blablablalba",45));
+   		listProduct.add(new Produit("tee shirt blanc","la description du produit ici blablablalba",25));
+   		listProduct.add(new Produit("Ceinture noir cuir","la description du produit ici blablablalba",10));
+   		listProduct.add(new Produit("Veste cuir","la description du produit ici blablablalba",345));
+   		listProduct.add(new Produit("Chaussure noire","la description du produit ici blablablalba",95));
+   		listProduct.add(new Produit("Chaussure basket","la description du produit ici blablablalba",65));
+   		listProduct.add(new Produit("Chaussure basket blanche","la description du produit ici blablablalba",58));
+   		listProduct.add(new Produit("Chaussure tennis exterieur","la description du produit ici blablablalba",66));
    		
    		for(Produit p: listProduct){
-   			jdbcTemplate.update("INSERT INTO reference_product(product, price)  VALUES (?,?)",
-                 new Object[]{p.getLabel(),p.getPrice()});
+   			jdbcTemplate.update("INSERT INTO reference_product(product,description,  price)  VALUES (?,?,?)",
+                 new Object[]{p.getLabel(),p.getDescription(),p.getPrice()});
 		}
    		
    		ArrayList<City> listCity = new ArrayList<City>();
@@ -81,6 +96,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
    		listCity.add(new City("Sydney"));
    		listCity.add(new City("Hong Kong"));
    		listCity.add(new City("Chicago"));
+   		
    		listCity.add(new City("San Francisco"));
    		listCity.add(new City("Rio de Janeiro"));
    		listCity.add(new City("Bueno Aires"));
@@ -117,8 +133,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
 	                    }
 	                });
 	        
-	        
-	       	int randomNbSale = (int)(Math.random() * 50) * 100;
+	       	int randomNbSale = (int)(Math.random() * 5) * 10;
 		    jdbcTemplate.update("INSERT INTO sales(item_id,city_id,numberSale)  VALUES (?,?,?)",
 		                new Object[]{product_id.intValue(),city_id.intValue(),randomNbSale});
 	     
@@ -130,9 +145,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
    		String[] noms = {"da silva","de vilmorin","luu","lim","Delaroche","Moncassion","Noireau","bonnemain","virot","laude","Martineau","charbonneau","morin","rust"};
 
    		
-        int randomNbInsert = (int)(Math.random() * 5) * 100;
-        		
-        for(int i=0;i<randomNbInsert;i++){
+        for(int i=0;i<randomNbInsertSale;i++){
             int lower = 1;
             int higher = 14;
 
@@ -226,6 +239,35 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
                 });
         return nbContrat.intValue();
     }
+    @Override
+    public int getNumberOfSale(String pCity){
+	  String query = "select rp.product product, rc.label city, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label ";
+      int nbSales = 0;
+      System.out.println("xx:" + pCity + " = "+ nbSales);
+      List<Sale> saleList = jdbcTemplate.query(
+              query,
+              new Object[]{},
+              new RowMapper() {
+                  public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                      Sale s = new Sale();
+                      s.setProduct(rs.getString("product"));
+                      s.setCity(rs.getString("city"));
+                      s.setNumberOfSales(rs.getInt("nbSales"));
+                      
+                      s.setRevenue(0);
+                      return s;
+                  }
+              }
+      );
+	  
+	  for(Sale s: saleList){
+		  nbSales += s.getNumberOfSales();
+	  }
+	  
+      System.out.println("nombre de ventes à:" + pCity + " = "+ nbSales);	
+      
+      return nbSales;
+    }
     
     @Override
     public ArrayList<Sale> getSalesSummary(String pCity){
@@ -251,7 +293,6 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
 		  nbSales += s.getNumberOfSales();
 	  }
 	  
-      System.out.println("nombre de ventes à:" + pCity + " = "+ nbSales);	
       
       return (ArrayList) saleList;
     }

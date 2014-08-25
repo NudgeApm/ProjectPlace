@@ -347,6 +347,11 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     }
     
     @Override
+    public int getNumberOfSale(String pCity){
+    	
+    	return benchmarkDAO.getNumberOfSale(pCity);
+	}
+    @Override
     public int getNumberAccount() {
         return benchmarkDAO.getNumberAccount();
     }

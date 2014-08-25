@@ -69,6 +69,7 @@ public class ActionByCityController extends AbstractController {
         mt.start();
         centralBaseListService.callToJMS();
         model.addAttribute("message", "ville active: paris");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Paris"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Paris"));
         return "salesByCityView";
         //return "homeView";
@@ -76,29 +77,76 @@ public class ActionByCityController extends AbstractController {
     }
     @RequestMapping("/runNewYork.htm")
     public String runNewYork(ModelMap model) {
-    	transactionCityService.selectNewYork();
+    	
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
+        transactionCityService.selectNewYork();
         model.addAttribute("message", "ville active: New York");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("New York"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("New York"));
         return "salesByCityView";
         //return "homeView";
 
     }
     
-    @RequestMapping("/runTokio.htm")
-    public String runTokio(ModelMap model) {
-    	transactionCityService.getHighVolumeData();
-    	//model.addAttribute("message", "ville active: Tokio");
-    	model.addAttribute("sales", centralBaseListService.getSalesSummary("Tokio"));
+    @RequestMapping("/consultationNewYork.htm")
+    public String consultationNewYork(ModelMap model) {
+    	
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
+        transactionCityService.selectNewYork();
+        model.addAttribute("message", "ville active: New York");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("New York"));
+        model.addAttribute("sales", centralBaseListService.getSalesSummary("New York"));
         return "salesByCityView";
         //return "homeView";
 
     }
     
+    
+    @RequestMapping("/runTokio.htm")
+    public String runTokio(ModelMap model) {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
+    	transactionCityService.getHighVolumeData();
+    	model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Tokio"));
+    	model.addAttribute("sales", centralBaseListService.getSalesSummary("Tokio"));
+        return "salesByCityView";
+        
+    }
+    
     @RequestMapping("/runChicago.htm")
     public String runChicago(ModelMap model) {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
     	transactionCityService.getListAccount(1000);
         model.addAttribute("message", "ville active: Chicago");
         //return "homeView";
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Chicago"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Chicago"));
         return "salesByCityView";
 
@@ -106,8 +154,17 @@ public class ActionByCityController extends AbstractController {
     
     @RequestMapping("/runHongKong.htm")
     public String runHongKong(ModelMap model) {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
     	transactionCityService.getListAccount(100);
         model.addAttribute("message", "ville active: Hong-Kong");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Hong Kong"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Hong Kong"));
         return "salesByCityView";
 
@@ -115,8 +172,17 @@ public class ActionByCityController extends AbstractController {
 
     @RequestMapping("/runMoscou.htm")
     public String runMoscou(ModelMap model) {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
     	transactionCityService.getListAccount(10000);
         model.addAttribute("message", "ville active: Moscou");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Moscou"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Moscou"));
         return "salesByCityView";
         //return "homeView";
@@ -125,8 +191,17 @@ public class ActionByCityController extends AbstractController {
 
     @RequestMapping("/runRio.htm")
     public String runRio(ModelMap model) {
+    	int nbContrat = centralBaseListService.getNumberContrat();
+        int nbAccount = centralBaseListService.getNumberAccount();
+        System.out.println("nombre de contrat ="+nbContrat);
+        if( nbContrat == 0 && nbAccount == 0){
+        	centralBaseListService.initDB();
+        	centralBaseListService.insertData();
+        	centralBaseListService.insertDataBatch();
+        }
     	centralBaseListService.selectOneColumnRecursifEntryPoint();
         model.addAttribute("message", "ville active: Rio de Janeiro");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Rio de Janeiro"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Rio de Janeiro"));
         return "salesByCityView";
         //return "homeView";
@@ -137,6 +212,7 @@ public class ActionByCityController extends AbstractController {
     public String runJohannesburg(ModelMap model) {
     	transactionCityService.selectJohannesburgData();
         model.addAttribute("message", "ville active: johannesburg");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Johannesburg"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Johannesburg"));
         return "salesByCityView";
         //return "homeView";
@@ -145,7 +221,10 @@ public class ActionByCityController extends AbstractController {
     @RequestMapping("/runBuenoAires.htm")
     public String runBuenoAires(ModelMap model) {
     	transactionCityService.selectBuenoAiresData();
+    	
         model.addAttribute("message", "ville active: Bueno Aires");
+        
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Bueno Aires"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Bueno Aires"));
         return "salesByCityView";
         //return "homeView";
@@ -155,6 +234,7 @@ public class ActionByCityController extends AbstractController {
     public String runMumbai(ModelMap model) {
     	transactionCityService.getOneSpecialTransaction();
     	model.addAttribute("message", "ville active: Mumbai");
+    	model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Mumbai"));
     	model.addAttribute("sales", centralBaseListService.getSalesSummary("Mumbai"));
         return "salesByCityView";
         
@@ -168,6 +248,7 @@ public class ActionByCityController extends AbstractController {
     @RequestMapping("/runSanFrancisco.htm")
     public String runSanFrancisco(ModelMap model) {
         model.addAttribute("message", "ville active: San Francisco");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("San Francisco"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("San Francisco"));
         return "salesByCityView";
         
@@ -180,6 +261,7 @@ public class ActionByCityController extends AbstractController {
     @RequestMapping("/runMadrid.htm")
     public String runMadrid(ModelMap model) {
         model.addAttribute("message", "ville active: Madrid");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Madrid"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Madrid"));
         //return "salesByCityView";
         
@@ -194,6 +276,7 @@ public class ActionByCityController extends AbstractController {
     public String runSydney(ModelMap model) {
     	transactionCityService.executeSydneyTransactions();
     	model.addAttribute("message", "ville active: Sydney");
+    	model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Sydney"));
     	model.addAttribute("sales", centralBaseListService.getSalesSummary("Sydney"));
         return "salesByCityView";
         

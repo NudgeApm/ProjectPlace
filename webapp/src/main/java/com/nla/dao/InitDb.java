@@ -44,6 +44,7 @@ public class InitDb {
                 "CREATE TABLE reference_product (" +
                 "  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
                 "  product varchar(50)," +
+                "  description varchar(100)," +
                 "  price int" +
                 ")");
         

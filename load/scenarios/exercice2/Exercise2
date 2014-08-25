@@ -1,0 +1,5 @@
+0/15 * * * * ?;http://localhost:9999/runJohannesburg.htm
+0/15 * * * * ?;http://localhost:9999/runSanFrancisco.htm
+0 0/1 * * * ?;http://localhost:9999/runSydney.htm
+0/20 * * * * ?;http://localhost:9999/runRio.htm
+0 0/5 * * * ?;http://localhost:9999/runActivity.htm

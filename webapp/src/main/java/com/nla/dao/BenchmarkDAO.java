@@ -34,4 +34,6 @@ public interface BenchmarkDAO {
     public void insertDataBatch();
     
     public ArrayList<Sale> getSalesSummary(String pCity);
+    
+    public int getNumberOfSale(String pCity);
 }
