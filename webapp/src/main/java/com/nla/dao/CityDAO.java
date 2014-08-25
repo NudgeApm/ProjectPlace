@@ -12,4 +12,15 @@ public interface CityDAO {
 	public void getHighVolumeDataForTokio();
 	public void getSydneyData();
 	public int getNumberContrat();
+	
+	// exercice 1
+	public void consultationNewYork();
+	public void consultationMadrid();
+	public void consultationMoscou();
+	public void calculAggregation();
+	public void updateDataSalesValue();
+	
+	
+	//
+	public void consolidateData();
 }

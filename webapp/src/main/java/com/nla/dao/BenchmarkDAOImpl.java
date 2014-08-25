@@ -96,7 +96,6 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
    		listCity.add(new City("Sydney"));
    		listCity.add(new City("Hong Kong"));
    		listCity.add(new City("Chicago"));
-   		
    		listCity.add(new City("San Francisco"));
    		listCity.add(new City("Rio de Janeiro"));
    		listCity.add(new City("Bueno Aires"));

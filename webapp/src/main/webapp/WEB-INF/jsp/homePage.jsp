@@ -26,7 +26,9 @@
 <div class="posSanFrancisco"><a  href="runSanFrancisco.htm"><button type="button" class="btn btn-bullet">San Francisco</button></a></div>
 <div class="posMadrid"><a  href="runMadrid.htm"><button type="button" class="btn btn-bullet">Madrid</button></a></div>
 <div class="posSydney"><a  href="runSydney.htm"><button type="button" class="btn btn-bullet">Sydney</button></a></div>
+<div class="posRome"><a  href="runRome.htm"><button type="button" class="btn btn-bullet">Rome</button></a></div>
 <div class="posActivity"><a  href="runActivity.htm"><button type="button" class="btn btn-bullet">bilan activité</button></a></div>
+<div class="posConsoData"><a  href="runConsolidationData.htm"><button type="button" class="btn btn-bullet">Consolidation données</button></a></div>
 Résumé des ventes
 <table border='1' class="table-bordered " align="center" > 
 	<thead>

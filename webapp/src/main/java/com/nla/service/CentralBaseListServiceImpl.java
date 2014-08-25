@@ -389,6 +389,28 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
         }
     }
 
+    @Override
+    public void detailOnSanFrancisco() {
+        int lower = 1;
+        int higher = 100;
+
+        int random = (int) (Math.random() * (higher - lower)) + lower;
+        displayDetail(random);
+    }
+
+
+    private void displayDetail(int i) {
+        if (i == 50) {
+            benchmarkDAO.selectOneColumn();
+        } else {
+            System.out.println("i=" + i);
+            int lower = 1;
+            int higher = 100;
+            int random = (int) (Math.random() * (higher - lower)) + lower;
+            displayDetail(random);
+        }
+    }
+    
     
     @Override
     public void selectOneColumnRecursifEntryPoint() {

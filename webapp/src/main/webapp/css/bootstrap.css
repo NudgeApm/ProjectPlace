@@ -5164,6 +5164,18 @@ left: 470px;
 bottom: 460px;
 }
 
+.posConsoData{
+position: relative;
+left: 840px;
+bottom: 325px;
+}
+
+.posRome{
+position: relative;
+left: 500px;
+bottom: 730px;
+}
+
 .posMoscou{
 position: relative;
 left: 550px;

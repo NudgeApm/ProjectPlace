@@ -33,6 +33,137 @@ public class CityDAOImpl implements CityDAO{
     }
     
     @Override
+    public void calculAggregation(){
+    	countSumSales();
+  		countAverageSales();
+  		countMaxSales();
+  		countMinSales();
+  		
+    	jdbcTemplate.update("DELETE from account");
+  		jdbcTemplate.update("DELETE from contrat");
+  		jdbcTemplate.update("DELETE from sales");
+  		
+  		
+  		
+  		
+    }
+    
+    private int getNumberOfCity(){
+    	// fake function return the number of city available
+    	// it should be 14 but we put 15 to generate an error.
+    	return 15;
+    	
+    }
+    
+    private int getNumberOfProduct(){
+    	return 21;
+    }
+    
+    
+    @Override
+    public void consolidateData(){
+    	int randomNbInsertSale = (int)(Math.random() * 50) * 1000;
+        
+        for(int i=0;i<randomNbInsertSale;i++){
+       	int idRef = (int)(Math.random() * getNumberOfCity());
+	        String query = "SELECT id FROM reference_city where id=? LIMIT 1";
+	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idRef)},
+	                new RowMapper() {
+	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+	                        return resultSet.getInt("id");
+	                    }
+	                });
+	        
+	       int idProduct = (int)(Math.random() * getNumberOfProduct());
+	        query = "SELECT id FROM reference_product where id=? LIMIT 1";
+	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idProduct)},
+	                new RowMapper() {
+	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+	                        return resultSet.getInt("id");
+	                    }
+	                });
+	        
+	       	int randomNbSale = (int)(Math.random() * 5);
+		    jdbcTemplate.update("INSERT INTO sales(item_id,city_id,numberSale)  VALUES (?,?,?)",
+		                new Object[]{product_id.intValue(),city_id.intValue(),randomNbSale});
+	     
+        
+        }
+    }
+    @Override
+    public void updateDataSalesValue(){
+    	 int randomNbInsertSale = (int)(Math.random() * 50) * 1000;
+         
+         for(int i=0;i<randomNbInsertSale;i++){
+        	int idRef = (int)(Math.random() * 14);
+ 	        String query = "SELECT id FROM reference_city where id=? LIMIT 1";
+ 	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idRef)},
+ 	                new RowMapper() {
+ 	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+ 	                        return resultSet.getInt("id");
+ 	                    }
+ 	                });
+ 	        
+ 	       int idProduct = (int)(Math.random() * 21);
+ 	        query = "SELECT id FROM reference_product where id=? LIMIT 1";
+ 	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idProduct)},
+ 	                new RowMapper() {
+ 	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+ 	                        return resultSet.getInt("id");
+ 	                    }
+ 	                });
+ 	        
+ 	       	int randomNbSale = (int)(Math.random() * 5);
+ 		    jdbcTemplate.update("INSERT INTO sales(item_id,city_id,numberSale)  VALUES (?,?,?)",
+ 		                new Object[]{product_id.intValue(),city_id.intValue(),randomNbSale});
+ 	     
+         
+         } 
+         
+         
+         String[] prenoms = {"jean christophe","jean baptiste","Paul","Laure","Alex","Pierre","Henri","Philippe","Christophe","Nicolas","Jean","Marc","Marion","Aurelie"};
+    		String[] noms = {"da silva","de vilmorin","luu","lim","Delaroche","Moncassion","Noireau","bonnemain","virot","laude","Martineau","charbonneau","morin","rust"};
+
+    		
+         for(int i=0;i<randomNbInsertSale;i++){
+             int lower = 1;
+             int higher = 14;
+
+             int lowerPrenom = 1;
+             int higherPrenom = 14;
+             int random = (int) (Math.random() * (higher - lower)) + lower;
+
+             int prenomRand = (int) (Math.random() * (higherPrenom - lowerPrenom)) + lowerPrenom;
+
+             jdbcTemplate.update("INSERT INTO account(nom,prenom,adresse,tel)  VALUES (?,?,?,?)",
+                     new Object[]{noms[prenomRand], prenoms[random], "15 rue de paris", "0546994573"});
+         }
+
+         int randomNbInsertContrat = (int)(Math.random() * 50) * 1000;
+         
+         for(int i=0;i<randomNbInsertContrat;i++){
+         	jdbcTemplate.update("INSERT INTO contrat(numero,datedebut,datefin,tel)  VALUES (?,?,?,?)", 			
+                     new Object[]{"Dupond", Calendar.getInstance(), Calendar.getInstance(), "0546994573"});
+         }
+    }
+    
+    private void countSumSales(){
+    	System.out.println("count sum sales");
+    }
+    
+    private void countAverageSales(){
+    	System.out.println("count average sales");
+    }
+    
+    private void countMaxSales(){
+    	System.out.println("count max sales");
+    }
+    
+    private void countMinSales(){
+    	System.out.println("count min sales");
+    }
+    
+    @Override
     public int getNumberContrat(){
     	
         String query = "select count(1) nb from contrat";
@@ -78,6 +209,97 @@ public class CityDAOImpl implements CityDAO{
                      }
                  }
          );
+    }
+   
+    /**
+     * Select in table: Account limit 300
+     * + system.out.println * 300
+     */
+    @Override
+    public void consultationMoscou(){
+    	int forumId = 1;
+        String query = "select a.nom,a.prenom,a.adresse,a.tel from account a where nom not like Lower('%jean%') and a.tel not in ('054503546544','054522945645') order by id desc limit 300" ;
+
+        List<Account> accountList = jdbcTemplate.query(
+                query,
+                new Object[]{},
+                new RowMapper() {
+                    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Account acc = new Account();
+                        acc.setNom(rs.getString("nom"));
+                        acc.setPrenom(rs.getString("prenom"));
+                        acc.setAdresse(rs.getString("adresse"));
+                        acc.setTel(rs.getString("tel"));
+                        return acc;
+                    }
+                }
+        );
+        for(Account a: accountList){
+        	System.out.println(a.getTel());
+        }
+    }
+    
+    
+    /**
+     * Select in table: Account limit 1000
+     * + system.out.println * 1000
+     */
+    @Override
+    public void consultationNewYork(){
+    	int forumId = 1;
+        String query = "select a.nom,a.prenom,a.adresse,a.tel from account a where nom not like '%John%' and  a.adresse not in ('123') and a.tel not in ('054503546544','054522945645') order by id desc limit 1000" ;
+
+
+        List<Account> accountList = jdbcTemplate.query(
+                query,
+                new Object[]{},
+                new RowMapper() {
+                    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Account acc = new Account();
+                        acc.setNom(rs.getString("nom"));
+                        acc.setPrenom(rs.getString("prenom"));
+                        acc.setAdresse(rs.getString("adresse"));
+                        acc.setTel(rs.getString("tel"));
+                        return acc;
+                    }
+                }
+        );
+        
+        for(Account a: accountList){
+        	System.out.println(a.getNom());
+        }
+          
+    }
+    
+    /**
+     * Select in table: Account limit 1000
+     * + system.out.println * 200
+     */
+    @Override
+    public void consultationMadrid(){
+    	int forumId = 1;
+        String query = "select a.nom,a.prenom,'adresse' adresse, a.tel from account a where nom not like UPPER('%jean%') and a.tel not in ('054503546544','054522945645') order by id desc limit 200" ;
+
+        List<Account> accountList = jdbcTemplate.query(
+                query,
+                new Object[]{},
+                new RowMapper() {
+                    public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                        Account acc = new Account();
+                        acc.setNom(rs.getString("nom"));
+                        acc.setPrenom(rs.getString("prenom"));
+                        acc.setAdresse(rs.getString("adresse"));
+                        acc.setTel(rs.getString("tel"));
+                        return acc;
+                    }
+                }
+        );
+        
+        for(Account a: accountList){
+        	System.out.println(a.getAdresse());
+        }
+        
+        
     }
     
     @Override

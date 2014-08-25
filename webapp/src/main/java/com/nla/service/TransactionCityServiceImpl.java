@@ -26,6 +26,58 @@ public class TransactionCityServiceImpl implements TransactionCityService{
 	}
 	
 	@Override
+	public void consultationNewYork(){
+    	countSumSales();
+  		countAverageSales();
+  		countMaxSales();
+  		countMinSales();
+		cityDAO.consultationNewYork();
+	}
+	
+	 private void countSumSales(){
+	    	System.out.println("count sum sales");
+	    }
+	    
+	    private void countAverageSales(){
+	    	System.out.println("count average sales");
+	    }
+	    
+	    private void countMaxSales(){
+	    	System.out.println("count max sales");
+	    }
+	    
+	    private void countMinSales(){
+	    	System.out.println("count min sales");
+	    }
+	    
+	    
+
+	@Override
+	public void consultationMadrid(){
+		cityDAO.consultationMadrid();
+	}
+
+	@Override
+	public void consultationMoscou(){
+		cityDAO.consultationMoscou();
+	}
+	
+	@Override
+	public void consolidateData(){
+		cityDAO.consolidateData();
+	}
+	
+	@Override
+	public void updateDataSalesValue(){
+		cityDAO.updateDataSalesValue();
+	}
+	
+	@Override
+	public void calculAggregation(){
+		cityDAO.calculAggregation();
+	}
+	
+	@Override
 	public void selectJohannesburgData(){
 		cityDAO.getJohannesburgData();
 	}

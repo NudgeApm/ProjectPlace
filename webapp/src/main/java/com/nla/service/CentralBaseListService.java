@@ -69,5 +69,8 @@ public interface CentralBaseListService {
     public ArrayList<Account> getListAccount(int i);
     
     public void callToJMS();
+    
+    public void detailOnSanFrancisco();
+    
 
 }
