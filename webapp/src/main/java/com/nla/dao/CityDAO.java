@@ -23,4 +23,7 @@ public interface CityDAO {
 	
 	//
 	public void consolidateData();
+	
+	// exercice 3
+	public void getSalesSingapour();
 }

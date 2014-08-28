@@ -475,10 +475,22 @@ public class ActionByCityController extends AbstractController {
     	model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Sydney"));
     	model.addAttribute("sales", centralBaseListService.getSalesSummary("Sydney"));
         return "salesByCityView";
-        
-        //return "homeView";
     } 
- 
+
+    /**
+     * @param model
+     * @return
+     */
+    @RequestMapping("/runSingapour.htm")
+    public String runSingapour(ModelMap model) {
+    	transactionCityService.executeSingapourTransactions();
+    	model.addAttribute("message", "ville active: Singapour");
+    	model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Singapour"));
+    	model.addAttribute("sales", centralBaseListService.getSalesSummary("Singapour"));
+        return "salesByCityView";
+    } 
+    
+    
     /**
      * @param model
      * @return

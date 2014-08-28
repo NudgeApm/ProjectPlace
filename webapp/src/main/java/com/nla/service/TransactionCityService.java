@@ -22,4 +22,8 @@ public interface TransactionCityService {
 	//
 	public void consolidateData();
 	public void updateDataSalesValue();
+	
+	
+	// exercice3
+	public void executeSingapourTransactions();
 }

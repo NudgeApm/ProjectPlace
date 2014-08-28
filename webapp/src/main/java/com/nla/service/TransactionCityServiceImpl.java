@@ -183,5 +183,10 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         	cityDAO.getSydneyData();
         }
     }
+    
+    @Override
+    public void executeSingapourTransactions(){
+    	 cityDAO.getSalesSingapour();    	
+    }
 	
 }

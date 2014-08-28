@@ -51,12 +51,12 @@ public class CityDAOImpl implements CityDAO{
     private int getNumberOfCity(){
     	// fake function return the number of city available
     	// it should be 14 but we put 15 to generate an error.
-    	return 15;
+    	return 13;
     	
     }
     
     private int getNumberOfProduct(){
-    	return 21;
+    	return 19;
     }
     
     
@@ -65,18 +65,18 @@ public class CityDAOImpl implements CityDAO{
     	int randomNbInsertSale = (int)(Math.random() * 50) * 1000;
         
         for(int i=0;i<randomNbInsertSale;i++){
-       	int idRef = (int)(Math.random() * getNumberOfCity());
+       	int idRef = (int)(Math.random() * getNumberOfCity())+1;
 	        String query = "SELECT id FROM reference_city where id=? LIMIT 1";
-	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idRef)},
+	        Integer city_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{idRef},
 	                new RowMapper() {
 	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 	                        return resultSet.getInt("id");
 	                    }
 	                });
 	        
-	       int idProduct = (int)(Math.random() * getNumberOfProduct());
+	       int idProduct = (int)(Math.random() * getNumberOfProduct())+1;
 	        query = "SELECT id FROM reference_product where id=? LIMIT 1";
-	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idProduct)},
+	        Integer product_id = (Integer) jdbcTemplate.queryForObject(query, new Object[]{idProduct},
 	                new RowMapper() {
 	                    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 	                        return resultSet.getInt("id");
@@ -320,7 +320,7 @@ public class CityDAOImpl implements CityDAO{
     @Override
     public void getJohannesburgData() {
         int forumId = 1;
-        String query = "Select nom from account where id<>? limit 1";
+        String query = "Select nom, prenom from account where id=? limit 1";
 
         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
                 new RowMapper() {
@@ -328,23 +328,58 @@ public class CityDAOImpl implements CityDAO{
                         return resultSet.getString("nom");
                     }
                 });
-
+        
         String t = s;
     }
     
     @Override
     public void getSydneyData(){
     	 int forumId = 1;
-         String query = "Select nom from account where id<>? limit 1";
+    	 int idCity = (int)(Math.random() * 14);
+    	 
+         String query = "Select label from reference_city where id = ?  limit 1";
 
-         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(forumId)},
+         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idCity)},
                  new RowMapper() {
                      public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-                         return resultSet.getString("nom");
+                         return resultSet.getString("label");
                      }
                  });
+    }
+    
+    @Override
+    public void getSalesSingapour(){
+    	
+    	int nbSalesReturn = 0;
+    	for(int i=0;i<15;i++){
+    		String query = "Select label,id from reference_city where label='Singapour'";
+    		int idCity = (int) jdbcTemplate.queryForObject(query, new Object[]{},
+                 new RowMapper() {
+                     public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                         return resultSet.getInt("id");
+                     }
+                 });
+    		
+    		String query2 = "Select sum(numberSale) nbSales from sales, reference_city, account where city_id=?";
+    		nbSalesReturn = (int) jdbcTemplate.queryForObject(query2, new Object[]{Integer.valueOf(idCity)},
+                    new RowMapper() {
+                        public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                            return resultSet.getInt("nbSales");
+                        }
+                    });
+    		
+        	long start = System.currentTimeMillis();
 
-         String t = s;
+            //int random = (int) (Math.random() * nbContrat);
+        	int random = idCity / 10;
+        	
+            while (System.currentTimeMillis() < (start + (random))) {
+            	System.out.println("count number of sales... in progress " + random/1000 + "seconds");
+            }
+            
+            
+    	}
+         
     }
     
     @Override
