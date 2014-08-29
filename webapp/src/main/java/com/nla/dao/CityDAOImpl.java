@@ -50,8 +50,7 @@ public class CityDAOImpl implements CityDAO{
     
     private int getNumberOfCity(){
     	// fake function return the number of city available
-    	// it should be 14 but we put 15 to generate an error.
-    	return 13;
+    	return 15;
     	
     }
     
@@ -332,13 +331,27 @@ public class CityDAOImpl implements CityDAO{
         String t = s;
     }
     
+
+    /*
+     * cette methode retourne l'ID de la ville que l'on veut récupérer.
+     */
+    private int getIdCitySydney(boolean b){
+    	if( b){
+    		return 4; // 4 correspond à l'ID de la ville de Sydney
+    	}else {
+    		return (int)(Math.random() * 13);
+    	}
+    }
+    
+    
+    
     @Override
     public void getSydneyData(){
     	 int forumId = 1;
-    	 int idCity = (int)(Math.random() * 14);
+    	 int idCity = getIdCitySydney(true);
     	 
          String query = "Select label from reference_city where id = ?  limit 1";
-
+         System.out.println("identifiant de la reference city= "+ idCity);
          String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(idCity)},
                  new RowMapper() {
                      public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
@@ -346,6 +359,20 @@ public class CityDAOImpl implements CityDAO{
                      }
                  });
     }
+
+    @Override
+    public void getSydneyData(int i){
+    	 String query = "Select label from reference_city where id = ?  limit 1";
+         System.out.println("identifiant de la reference city= "+ i);
+         String s = (String) jdbcTemplate.queryForObject(query, new Object[]{Integer.valueOf(i)},
+                 new RowMapper() {
+                     public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                         return resultSet.getString("label");
+                     }
+                 });
+    }
+    
+    
     
     @Override
     public void getSalesSingapour(){

@@ -348,7 +348,6 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     
     @Override
     public int getNumberOfSale(String pCity){
-    	
     	return benchmarkDAO.getNumberOfSale(pCity);
 	}
     @Override
@@ -356,7 +355,16 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
         return benchmarkDAO.getNumberAccount();
     }
     
+    @Override
+    public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity){
+    	return benchmarkDAO.getNumberOfSaleByProductByCity(pIdProduct,pIdCity);
+    }
     
+    
+    @Override
+    public ArrayList<Produit> getSalesByProductByCity(int pIdProduct, int pIdCity){
+    	return benchmarkDAO.getSalesByProductByCity(pIdProduct,pIdCity);
+    }
     
     @Override
     public void selectOneColumn() {

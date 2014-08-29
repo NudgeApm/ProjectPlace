@@ -72,5 +72,9 @@ public interface CentralBaseListService {
     
     public void detailOnSanFrancisco();
     
+    public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity);
+    public ArrayList<Produit> getSalesByProductByCity(int pIdProduct, int pIdCity);
+    
+    
 
 }

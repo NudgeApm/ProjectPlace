@@ -29,7 +29,10 @@
 <div class="posRome"><a  href="runRome.htm"><button type="button" class="btn btn-bullet">Rome</button></a></div>
 <div class="posActivity"><a  href="runActivity.htm"><button type="button" class="btn btn-bullet">bilan activité</button></a></div>
 <div class="posConsoData"><a  href="runConsolidationData.htm"><button type="button" class="btn btn-bullet">Consolidation données</button></a></div>
-Résumé des ventes
+<div class="posMunich"><a  href="runMunich.htm"><button type="button" class="btn btn-bullet">Munich</button></a></div>
+<div class="posShanghai"><a  href="runMunich.htm"><button type="button" class="btn btn-bullet">Shanghai</button></a></div>
+<div class="posMiami"><a  href="runMiami.htm"><button type="button" class="btn btn-bullet">Miami</button></a></div>
+<!--  Résumé des ventes
 <table border='1' class="table-bordered " align="center" > 
 	<thead>
 		<th>Produit</th>
@@ -46,7 +49,7 @@ Résumé des ventes
 	</tr>
 </c:forEach>
 </table>
-
+-->
 
 
 

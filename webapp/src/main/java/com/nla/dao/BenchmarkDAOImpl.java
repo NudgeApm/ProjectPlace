@@ -103,6 +103,10 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
    		listCity.add(new City("Mumbai"));
    		listCity.add(new City("Singapour"));
    		listCity.add(new City("Johannesburg"));
+   		listCity.add(new City("Rome"));
+   		listCity.add(new City("Munich"));
+   		listCity.add(new City("Shanghai"));
+   		listCity.add(new City("Miami"));
    		
    		for(City c: listCity){
    			jdbcTemplate.update("INSERT INTO reference_city(label)  VALUES (?)",
@@ -225,12 +229,45 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
 	 }
     
     
+	@Override
+	public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity){
+	  String query = "select numberSale from sales s where s.item_id = ? and s.city_id = ? ";
+      int nbSales = 0;
+      List<Produit> productList = jdbcTemplate.query(
+          query,
+          new Object[]{Integer.valueOf(pIdProduct),Integer.valueOf(pIdCity)},
+          new RowMapper() {
+              public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                  Produit p = new Produit();
+                  p.setNbSales(rs.getInt("numberSale"));
+                  return p;
+              }
+          });
+          return (ArrayList)productList;
+	}
+	
+	
+	@Override
+	public ArrayList<Produit> getSalesByProductByCity(int pIdProduct, int pIdCity){
+	  String query = "select nbSales from sales s where s.item_id = ? and s.city_id = ? ";
+      int nbSales = 0;
+      List<Produit> productList = jdbcTemplate.query(
+          query,
+          new Object[]{Integer.valueOf(pIdProduct),Integer.valueOf(pIdCity)},
+          new RowMapper() {
+              public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+                  Produit p = new Produit();
+                  p.setNbSales(rs.getInt("nbSales"));
+                  return p;
+              }
+          });
+          return (ArrayList)productList;
+	}
+	
     
     @Override
     public int getNumberContrat(){
-    	
         String query = "select count(1) nb from contrat";
-
         Integer nbContrat = (Integer) jdbcTemplate.queryForObject(query, new Object[]{},
                 new RowMapper() {
                     public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
@@ -241,7 +278,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     }
     @Override
     public int getNumberOfSale(String pCity){
-	  String query = "select rp.product product, rc.label city, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label ";
+	  String query = "select rp.product product, rc.label city,rp.id idProduct, rc.id idCity, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label, rp.id, rc.id ";
       int nbSales = 0;
       System.out.println("xx:" + pCity + " = "+ nbSales);
       List<Sale> saleList = jdbcTemplate.query(
@@ -253,6 +290,10 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
                       s.setProduct(rs.getString("product"));
                       s.setCity(rs.getString("city"));
                       s.setNumberOfSales(rs.getInt("nbSales"));
+                      s.setIdCity(rs.getInt("idCity"));
+                      s.setIdProduct(rs.getInt("idProduct"));
+                      
+                      System.out.println("idCity:" + s.getIdCity());
                       
                       s.setRevenue(0);
                       return s;
@@ -271,7 +312,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     
     @Override
     public ArrayList<Sale> getSalesSummary(String pCity){
-	  String query = "select rp.product product, rc.label city, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label ";
+	  String query = "select rp.product product, rc.label city,rp.id idProduct, rc.id idCity, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label ";
       int nbSales = 0;
 	  List<Sale> saleList = jdbcTemplate.query(
               query,
@@ -282,7 +323,8 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
                       s.setProduct(rs.getString("product"));
                       s.setCity(rs.getString("city"));
                       s.setNumberOfSales(rs.getInt("nbSales"));
-                      
+                      s.setIdCity(rs.getInt("idCity"));
+                      s.setIdProduct(rs.getInt("idProduct"));
                       s.setRevenue(0);
                       return s;
                   }

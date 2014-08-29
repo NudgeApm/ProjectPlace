@@ -5170,6 +5170,26 @@ left: 840px;
 bottom: 325px;
 }
 
+.posMunich{
+position: relative;
+left: 505px;
+bottom: 835px;
+	
+}
+
+.posMiami{
+position: relative;
+left: 240px;
+bottom: 820px;
+}
+
+.posShanghai{
+position: relative;
+left: 780px;
+bottom: 790px;
+}
+
+
 .posRome{
 position: relative;
 left: 500px;

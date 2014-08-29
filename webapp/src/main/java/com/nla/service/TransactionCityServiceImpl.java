@@ -98,6 +98,9 @@ public class TransactionCityServiceImpl implements TransactionCityService{
     public void getHighVolumeData() {
     	cityDAO.getHighVolumeDataForTokio();
     }
+    
+    
+    
     @Override
     public void getOneSpecialTransaction(){
     	Date dateBegin = new Date();
@@ -165,14 +168,28 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         return cal.getTime();
     }
     
+    /*
+     * cette methode retourne l'ID de la ville que l'on veut récupérer.
+     */
+    private int getIdCitySydney(boolean b){
+    	if( b){
+    		return 4; // 4 correspond à l'ID de la ville de Sydney
+    	}else {
+    		return (int)(Math.random() * 13);
+    	}
+    }
+    
+    
+    
     @Override
     public void executeSydneyTransactions(){
     	int nbContrat =  cityDAO.getNumberContrat();
     	
     	long start = System.currentTimeMillis();
 
+    	
         //int random = (int) (Math.random() * nbContrat);
-    	int random = nbContrat / 10;
+    	int random = nbContrat / 30;
     	
         // boucle tant que la dur�e de vie du thread est < � n secondes
         while (System.currentTimeMillis() < (start + (random))) {
@@ -182,6 +199,8 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         for (int i = 0; i < nbContrat; i++) {
         	cityDAO.getSydneyData();
         }
+        
+        cityDAO.getSydneyData(getIdCitySydney(false));
     }
     
     @Override

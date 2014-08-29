@@ -13,3 +13,14 @@
 12 0/8 * * * ?;http://localhost:9999/runBuenoAires.htm
 13 0/9 * * * ?;http://localhost:9999/runMumbai.htm
 14 0/11 * * * ?;http://localhost:9999/runMadrid.htm
+32 0/32 * * * ?;http://localhost:9999/runMunich.htm
+39 0/34 * * * ?;http://localhost:9999/runShanghai.htm
+15 0/9 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=15&idProduct=15
+13 0/8 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=14&idProduct=13
+16 0/17 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=13&idProduct=12
+23 0/16 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=7&idProduct=9
+17 0/19 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=12&idProduct=11
+14 0/10 * * * ?;http://localhost:9999/afficheDetailVente.htm?idCity=1&idProduct=13
+12 0/27 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=13&idProduct=33
+23 0/22 * * * ?;http://localhost:9999/afficheDetailVente.htm?idCity=1&idProduct=11
+23 0/45 * * * ?;http://localhost:9999/afficheDetailVente.htm?idCity=1&idProduct=12

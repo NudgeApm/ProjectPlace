@@ -11,6 +11,7 @@ public interface CityDAO {
 	public ArrayList<Account> getListAccountDAO(int i);
 	public void getHighVolumeDataForTokio();
 	public void getSydneyData();
+	public void getSydneyData(int i);
 	public int getNumberContrat();
 	
 	// exercice 1

@@ -4,7 +4,18 @@ public class Produit extends ObjectBase implements java.io.Serializable {
     String label;
     int price;
     String description;
-
+    
+    // for presentation purpose only
+    int nbSales;
+    
+    public Produit() {
+    	super();
+    	this.label = "default Label";
+    	this.price = 100;
+    	this.description = "default description";
+    }
+    
+    
     public Produit(String pLabel,String pDesc, int pPrice) {
     	super();
     	this.label = pLabel;
@@ -12,6 +23,15 @@ public class Produit extends ObjectBase implements java.io.Serializable {
     	this.description = pDesc;
     }
 
+    
+    public int getNbSales(){
+    	return nbSales;
+    }
+    
+    
+   public void setNbSales(int s){
+	   nbSales= s;
+   }
     
     public String getLabel() {
         return label;

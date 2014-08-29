@@ -87,6 +87,12 @@
       <put-attribute name="body"   value="/WEB-INF/jsp/SalesByCityPage.jsp"/>      
   </definition>
   
+  <definition name="DetailsSalesByCityTile" extends="saleLayout">
+      <put-attribute name="title"  value="Sales by city"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/DetailsSalesByCity.jsp"/>      
+  </definition>
+  
+  
   
   
   

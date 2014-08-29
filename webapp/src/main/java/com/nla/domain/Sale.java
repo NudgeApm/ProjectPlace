@@ -3,6 +3,8 @@ package com.nla.domain;
 public class Sale extends ObjectBase implements java.io.Serializable {
     String product;
     String city;
+    int idCity;
+    int idProduct;
     int numberOfSales;
     int revenue;
 
@@ -49,4 +51,20 @@ public class Sale extends ObjectBase implements java.io.Serializable {
     public void setRevenue(int pI) {
         this.revenue = pI;
     }
+    
+    public int getIdProduct() {
+        return idProduct;
+    }
+    public void setIdProduct(int pI) {
+        this.idProduct = pI;
+    }
+    
+    public int getIdCity() {
+        return idCity;
+    }
+    public void setIdCity(int pI) {
+        this.idCity = pI;
+    }
+    
+    
 }

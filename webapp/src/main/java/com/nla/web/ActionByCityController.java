@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
@@ -393,6 +393,33 @@ public class ActionByCityController extends AbstractController {
     }
     
 
+    @RequestMapping("/afficheDetail.htm")
+    public String afficheDetail(ModelMap model, @RequestParam("idProduct") String pIdProduct, @RequestParam("idCity") String pIdCity) {
+        model.addAttribute("message", "ville active: details");
+        model.addAttribute("products",centralBaseListService.getNumberOfSaleByProductByCity(Integer.valueOf(pIdProduct), Integer.valueOf(pIdCity)));
+        
+        return "detailsSalesByCityView";
+    }
+    
+    @RequestMapping("/afficheDetailVente.htm")
+    public String afficheDetailVente(ModelMap model, @RequestParam("idProduct") String pIdProduct, @RequestParam("idCity") String pIdCity) {
+        model.addAttribute("message", "ville active: details");
+        model.addAttribute("products",centralBaseListService.getSalesByProductByCity(Integer.valueOf(pIdProduct), Integer.valueOf(pIdCity)));
+        return "detailsSalesByCityView";
+
+    }    
+    
+ 
+    
+    @RequestMapping("/runMiami.htm")
+    public String runMiami(ModelMap model) {
+        model.addAttribute("message", "ville active: Miami");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Miami"));
+        model.addAttribute("sales", centralBaseListService.getSalesSummary("Miami"));
+        return "salesByCityView";
+    }
+    
+    
     @RequestMapping("/runRome.htm")
     public String runRome(ModelMap model) {
         model.addAttribute("message", "ville active: Rome");
@@ -400,6 +427,22 @@ public class ActionByCityController extends AbstractController {
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Rome"));
         return "salesByCityView";
         //return "homeView";
+    }
+
+    @RequestMapping("/runShanghai.htm")
+    public String runShanghai(ModelMap model) {
+        model.addAttribute("message", "ville active: Shanghai");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Shanghai"));
+        model.addAttribute("sales", centralBaseListService.getSalesSummary("Shanghai"));
+        return "salesByCityView";
+    }
+    
+    @RequestMapping("/runMunich.htm")
+    public String runMunich(ModelMap model) {
+        model.addAttribute("message", "ville active: Munich");
+        model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Munich"));
+        model.addAttribute("sales", centralBaseListService.getSalesSummary("Munich"));
+        return "salesByCityView";
     }
     
     
@@ -459,7 +502,9 @@ public class ActionByCityController extends AbstractController {
         model.addAttribute("message", "ville active: Madrid");
         model.addAttribute("nbSales",centralBaseListService.getNumberOfSale("Madrid"));
         model.addAttribute("sales", centralBaseListService.getSalesSummary("Madrid"));
-        //return "salesByCityView";
+        
+        
+        //return "salesByCityView"; correction mettre cette vue à la place pour faire pour les autres vues.
         
         return "technicalAnalysisAdminInexistante";
     }

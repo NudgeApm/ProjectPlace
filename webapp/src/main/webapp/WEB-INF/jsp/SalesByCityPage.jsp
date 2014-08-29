@@ -14,7 +14,11 @@ Total des ventes : <c:out value="${nbSales}"/>
 	</thead>
 <c:forEach var="s" items="${sales}">
 	<tr>		
-		<td><c:out value="${s.product}"/></td>
+		<td>
+		<a href="afficheDetail.htm?idCity=${s.idCity}&idProduct=${s.idProduct}">
+		          <i class="icon-info-sign"></i><c:out value="${s.product}"/>
+		      </a>
+		</td>
 		<td><c:out value="${s.city}"/></td>
 		
 		<td><c:out value="${s.numberOfSales}"/></td>
