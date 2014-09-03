@@ -15,9 +15,16 @@
 		<tiles.version>2.1.3</tiles.version>
 		<jetty.version>9.2.1.v20140609</jetty.version>
 		<jettyJvmArgs></jettyJvmArgs>
+		<debugOptions></debugOptions>
 	</properties>
 
 	<profiles>
+		<profile>
+			<id>debug</id>
+			<properties>
+				<debugOptions>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</debugOptions>
+			</properties>
+		</profile>
 		<profile>
 			<id>nudge</id>
 			<properties>
@@ -188,7 +195,7 @@
 					<scanintervalseconds>10</scanintervalseconds>
 					<!-- use specific config to enable jmx -->
 					<jettyXml>src/conf/jetty-jmx.xml</jettyXml>
-					<jvmArgs>${jettyJvmArgs}</jvmArgs>
+					<jvmArgs>${jettyJvmArgs} ${debugOptions}</jvmArgs>
 
 					<stopKey>stop-jetty</stopKey>
 					<stopPort>9999</stopPort>
