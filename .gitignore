@@ -12,3 +12,6 @@
 
 # nohup execution output
 nohup.out
+
+# probe install folder
+/probe/
