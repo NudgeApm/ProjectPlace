@@ -19,3 +19,15 @@ l'application est accessible via [http://localhost:8080/]
 	./run.sh <fichier-de-scenario>
 
 Des exemples de scénarios sont fournis dans le répertoire "scenarios".
+
+# installation & configuration de la sonde
+
+1. créer l'application dans l'interface de nudge
+2. télécharger et décompresser la sonde depuis l'interface de nudge dans le répertoire "probe"
+3. lancer l'application avec les commandes suivantes :
+
+
+	cd webapp
+	mvn jetty:run-forked -Pnudge
+
+
