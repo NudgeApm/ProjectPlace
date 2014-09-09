@@ -335,7 +335,7 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     
     @Override
     public ArrayList<Sale> getSalesSummary(String pCity){
-	  String query = "select rp.product product, rc.label city,rp.id idProduct, rc.id idCity, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label, rc.id ";
+	  String query = "select rp.product product, rc.label city,rp.id idProduct, rc.id idCity, sum(numberSale) nbSales from sales s, reference_product rp, reference_city rc where s.item_id = rp.id and s.city_id = rc.id and rc.label = '"+pCity+"' group by rp.product, rc.label, rc.id, rp.id ";
       int nbSales = 0;
 	  List<Sale> saleList = jdbcTemplate.query(
               query,
