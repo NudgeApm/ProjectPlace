@@ -26,8 +26,10 @@ Des exemples de scénarios sont fournis dans le répertoire "scenarios".
 2. télécharger et décompresser la sonde depuis l'interface de nudge dans le répertoire "probe"
 3. lancer l'application avec les commandes suivantes :
 
-
 	cd webapp
 	mvn jetty:run-forked -Pnudge
 
+pour lancer l'application en debug, sur le port 5005, il faut utiliser le profil "debug"
+
+	mvn jetty:run-forked -Pnudge,debug
 
