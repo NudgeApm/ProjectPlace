@@ -132,10 +132,6 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         int i = s.length();
     }
     
-
-    public static long intervalleEnMillis(Date dateBegin, Date dateEnd) {
-        return (dateEnd.getTime() - dateBegin.getTime());
-    }
     
     public static Date findSaturdayAtSameWeekAtZero(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -168,19 +164,6 @@ public class TransactionCityServiceImpl implements TransactionCityService{
         return cal.getTime();
     }
     
-    /*
-     * cette methode retourne l'ID de la ville que l'on veut récupérer.
-     */
-    private int getIdCitySydney(boolean b){
-    	if( b){
-    		return 4; // 4 correspond à l'ID de la ville de Sydney
-    	}else {
-    		return (int)(Math.random() * 13);
-    	}
-    }
-    
-    
-    
     @Override
     public void executeSydneyTransactions(){
     	int nbContrat =  cityDAO.getNumberContrat();
@@ -207,5 +190,20 @@ public class TransactionCityServiceImpl implements TransactionCityService{
     public void executeSingapourTransactions(){
     	 cityDAO.getSalesSingapour();    	
     }
+    
+    /*
+     * cette methode retourne l'ID de la ville que l'on veut récupérer.
+     */
+    private int getIdCitySydney(boolean b){
+    	if( b){
+    		return 4; // 4 correspond à l'ID de la ville de Sydney
+    	}else {
+    		return (int)(Math.random() * 13);
+    	}
+    }
 	
+
+    public static long intervalleEnMillis(Date dateBegin, Date dateEnd) {
+        return (dateEnd.getTime() - dateBegin.getTime());
+    }
 }

@@ -230,7 +230,30 @@ public class BenchmarkDAOImpl implements BenchmarkDAO {
     
     
 	@Override
-	public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity){
+	public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity) {
+		
+		String query2 = "select count(id) nb from reference_city rc where rc.id = ? ";
+	      List<Produit> ListRefCity = jdbcTemplate.query(
+	          query2,
+	          new Object[]{Integer.valueOf(pIdCity)},
+	          new RowMapper() {
+	              public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+	                  Produit p = new Produit();
+	                  p.setNbSales(rs.getInt("nb"));
+	                  return p;
+	              }
+	          });
+	      
+	      if( ListRefCity.get(0).getNbSales() ==0){
+	    	  String testIdCity = null;
+	    	  testIdCity.indexOf("1");
+	    	  //throw new Exception();
+	      }
+	      if( false){
+	    	 // throw new Exception();
+	      }
+		
+		
 	  String query = "select numberSale from sales s where s.item_id = ? and s.city_id = ? ";
       int nbSales = 0;
       List<Produit> productList = jdbcTemplate.query(

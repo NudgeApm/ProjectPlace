@@ -6,6 +6,8 @@ import com.nla.domain.Sale;
 import com.nla.domain.Produit;
 import com.nla.domain.KbUsr;
 
+
+
 import java.util.ArrayList;
 
 public interface BenchmarkDAO {

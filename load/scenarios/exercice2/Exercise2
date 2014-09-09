@@ -38,7 +38,7 @@
 39 0/34 * * * ?;http://localhost:9999/runShanghai.htm
 21 0/21 * * * ?;http://localhost:9999/runShanghai.htm
 15 0/9 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=15&idProduct=15
-13 0/39 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=14&idProduct=X
+13 0/39 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=140&idProduct=50
 13 0/33 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=14&idProduct=9
 12 0/27 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=13&idProduct=33
 16 0/17 * * * ?;http://localhost:9999/afficheDetail.htm?idCity=13&idProduct=12

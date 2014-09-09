@@ -357,7 +357,15 @@ public class CentralBaseListServiceImpl implements CentralBaseListService {
     
     @Override
     public ArrayList<Produit> getNumberOfSaleByProductByCity(int pIdProduct, int pIdCity){
-    	return benchmarkDAO.getNumberOfSaleByProductByCity(pIdProduct,pIdCity);
+    	ArrayList<Produit> listProduit = null;
+    	listProduit = benchmarkDAO.getNumberOfSaleByProductByCity(pIdProduct,pIdCity);
+    	/*try {
+    		listProduit = benchmarkDAO.getNumberOfSaleByProductByCity(pIdProduct,pIdCity);
+    	} catch (Exception e){
+    		System.out.println(e.getStackTrace());
+    		System.out.println("un probleme est survenu dans l'appel de la requete SQL"+e.getMessage());
+    	}*/
+    	return listProduit;
     }
     
     
